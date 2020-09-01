@@ -34,6 +34,8 @@
 		26FF228A24FEF8320027FC4B /* Pet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF228624FEF8310027FC4B /* Pet+CoreDataClass.swift */; };
 		26FF228B24FEF8320027FC4B /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF228724FEF8320027FC4B /* User+CoreDataProperties.swift */; };
 		26FF228C24FEF8320027FC4B /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF228824FEF8320027FC4B /* User+CoreDataClass.swift */; };
+		26FF229724FEF9EC0027FC4B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF229624FEF9EC0027FC4B /* UserCell.swift */; };
+		26FF229924FEF9F70027FC4B /* PetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF229824FEF9F70027FC4B /* PetCell.swift */; };
 		4AFB71F24B8382BBD12E2E1D /* Pods_Kea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396F75C791CF2A2D703BF278 /* Pods_Kea.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,8 @@
 		26FF228624FEF8310027FC4B /* Pet+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pet+CoreDataClass.swift"; sourceTree = "<group>"; };
 		26FF228724FEF8320027FC4B /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		26FF228824FEF8320027FC4B /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		26FF229624FEF9EC0027FC4B /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		26FF229824FEF9F70027FC4B /* PetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCell.swift; sourceTree = "<group>"; };
 		396F75C791CF2A2D703BF278 /* Pods_Kea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF69B875F3AD6B0EEF8DBF4 /* Pods-Kea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kea.debug.xcconfig"; path = "Target Support Files/Pods-Kea/Pods-Kea.debug.xcconfig"; sourceTree = "<group>"; };
 		A177F47D209843B34F9A4BD4 /* Pods-Kea.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kea.release.xcconfig"; path = "Target Support Files/Pods-Kea/Pods-Kea.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 				260A351324FEBEAF00008183 /* GoogleService-Info.plist */,
 				26FF227224FEEDD70027FC4B /* Fonts */,
 				260A350E24FDE7B000008183 /* Helpers */,
+				26FF229524FEF9CA0027FC4B /* Cells */,
 				260A351724FECEFA00008183 /* Media */,
 				260A350324FDDBDC00008183 /* Model  */,
 				260A350524FDDBFC00008183 /* Controller */,
@@ -191,6 +196,15 @@
 				26FF227424FEEE150027FC4B /* Poppins-Thin.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		26FF229524FEF9CA0027FC4B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				26FF229624FEF9EC0027FC4B /* UserCell.swift */,
+				26FF229824FEF9F70027FC4B /* PetCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		98B7D2AC98A84F15B9FEF51E /* Pods */ = {
@@ -337,11 +351,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				260A350A24FDDCD500008183 /* LoginViewController.swift in Sources */,
+				26FF229924FEF9F70027FC4B /* PetCell.swift in Sources */,
 				26FF228A24FEF8320027FC4B /* Pet+CoreDataClass.swift in Sources */,
 				26FF228B24FEF8320027FC4B /* User+CoreDataProperties.swift in Sources */,
 				26FF228C24FEF8320027FC4B /* User+CoreDataClass.swift in Sources */,
 				260A34F124FDDB4500008183 /* ViewController.swift in Sources */,
 				260A34F724FDDB4500008183 /* Kea.xcdatamodeld in Sources */,
+				26FF229724FEF9EC0027FC4B /* UserCell.swift in Sources */,
 				260A34ED24FDDB4500008183 /* AppDelegate.swift in Sources */,
 				260A34EF24FDDB4500008183 /* SceneDelegate.swift in Sources */,
 				260A350C24FDDCE800008183 /* HomeViewController.swift in Sources */,
