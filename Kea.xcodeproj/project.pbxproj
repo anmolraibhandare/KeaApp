@@ -20,6 +20,7 @@
 		260A351024FDE7D200008183 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A350F24FDE7D200008183 /* Utilities.swift */; };
 		260A351424FEBEAF00008183 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 260A351324FEBEAF00008183 /* GoogleService-Info.plist */; };
 		260A351624FEC48700008183 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A351524FEC48700008183 /* Constants.swift */; };
+		260A351924FEDDB000008183 /* viewControllerVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 260A351824FEDDB000008183 /* viewControllerVideo.mp4 */; };
 		4AFB71F24B8382BBD12E2E1D /* Pods_Kea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396F75C791CF2A2D703BF278 /* Pods_Kea.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		260A350F24FDE7D200008183 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		260A351324FEBEAF00008183 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		260A351524FEC48700008183 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		260A351824FEDDB000008183 /* viewControllerVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = viewControllerVideo.mp4; sourceTree = "<group>"; };
 		396F75C791CF2A2D703BF278 /* Pods_Kea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF69B875F3AD6B0EEF8DBF4 /* Pods-Kea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kea.debug.xcconfig"; path = "Target Support Files/Pods-Kea/Pods-Kea.debug.xcconfig"; sourceTree = "<group>"; };
 		A177F47D209843B34F9A4BD4 /* Pods-Kea.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kea.release.xcconfig"; path = "Target Support Files/Pods-Kea/Pods-Kea.release.xcconfig"; sourceTree = "<group>"; };
@@ -82,10 +84,10 @@
 				260A34FD24FDDB4800008183 /* Info.plist */,
 				260A351324FEBEAF00008183 /* GoogleService-Info.plist */,
 				260A350E24FDE7B000008183 /* Helpers */,
+				260A351724FECEFA00008183 /* Media */,
+				260A350324FDDBDC00008183 /* Model  */,
 				260A350524FDDBFC00008183 /* Controller */,
 				260A350424FDDBF400008183 /* View */,
-				260A350324FDDBDC00008183 /* Model  */,
-				260A34F524FDDB4500008183 /* Kea.xcdatamodeld */,
 				260A350624FDDC0400008183 /* Networking */,
 			);
 			path = Kea;
@@ -94,6 +96,7 @@
 		260A350324FDDBDC00008183 /* Model  */ = {
 			isa = PBXGroup;
 			children = (
+				260A34F524FDDB4500008183 /* Kea.xcdatamodeld */,
 			);
 			path = "Model ";
 			sourceTree = "<group>";
@@ -111,8 +114,8 @@
 		260A350524FDDBFC00008183 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				260A350724FDDCC700008183 /* SignUpViewController.swift */,
 				260A34F024FDDB4500008183 /* ViewController.swift */,
+				260A350724FDDCC700008183 /* SignUpViewController.swift */,
 				260A350924FDDCD500008183 /* LoginViewController.swift */,
 				260A350B24FDDCE800008183 /* HomeViewController.swift */,
 			);
@@ -133,6 +136,14 @@
 				260A351524FEC48700008183 /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		260A351724FECEFA00008183 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				260A351824FEDDB000008183 /* viewControllerVideo.mp4 */,
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 		98B7D2AC98A84F15B9FEF51E /* Pods */ = {
@@ -215,6 +226,7 @@
 				260A34FC24FDDB4800008183 /* LaunchScreen.storyboard in Resources */,
 				260A351424FEBEAF00008183 /* GoogleService-Info.plist in Resources */,
 				260A34F924FDDB4800008183 /* Assets.xcassets in Resources */,
+				260A351924FEDDB000008183 /* viewControllerVideo.mp4 in Resources */,
 				260A34F424FDDB4500008183 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
