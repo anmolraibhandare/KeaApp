@@ -50,6 +50,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Y6W-zs-CAM"/>
+                    <connections>
+                        <outlet property="loginButton" destination="y53-ZQ-cjX" id="foK-Ri-3xF"/>
+                        <outlet property="signUpButton" destination="9Xb-KY-6h2" id="qVP-JA-a45"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -113,8 +117,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="8vC-JT-YhI"/>
                     <connections>
+                        <outlet property="emailTextField" destination="im2-Up-qsr" id="CzQ-qy-a30"/>
                         <outlet property="errorLabel" destination="VyZ-jw-NJC" id="fS8-yT-QcF"/>
                         <outlet property="loginButton" destination="R0L-xN-OHz" id="Jft-pK-Shu"/>
+                        <outlet property="passwordTextField" destination="OxW-ea-YD2" id="SN1-bt-Upo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sr3-eR-dP9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

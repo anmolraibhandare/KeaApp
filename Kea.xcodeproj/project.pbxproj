@@ -17,6 +17,7 @@
 		260A350824FDDCC700008183 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A350724FDDCC700008183 /* SignUpViewController.swift */; };
 		260A350A24FDDCD500008183 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A350924FDDCD500008183 /* LoginViewController.swift */; };
 		260A350C24FDDCE800008183 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A350B24FDDCE800008183 /* HomeViewController.swift */; };
+		260A351024FDE7D200008183 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A350F24FDE7D200008183 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		260A350724FDDCC700008183 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		260A350924FDDCD500008183 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		260A350B24FDDCE800008183 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		260A350F24FDE7D200008183 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				260A34EC24FDDB4500008183 /* AppDelegate.swift */,
 				260A34EE24FDDB4500008183 /* SceneDelegate.swift */,
 				260A34FD24FDDB4800008183 /* Info.plist */,
+				260A350E24FDE7B000008183 /* Helpers */,
 				260A350524FDDBFC00008183 /* Controller */,
 				260A350424FDDBF400008183 /* View */,
 				260A350324FDDBDC00008183 /* Model  */,
@@ -109,6 +112,14 @@
 			children = (
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		260A350E24FDE7B000008183 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				260A350F24FDE7D200008183 /* Utilities.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +199,7 @@
 				260A34ED24FDDB4500008183 /* AppDelegate.swift in Sources */,
 				260A34EF24FDDB4500008183 /* SceneDelegate.swift in Sources */,
 				260A350C24FDDCE800008183 /* HomeViewController.swift in Sources */,
+				260A351024FDE7D200008183 /* Utilities.swift in Sources */,
 				260A350824FDDCC700008183 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
