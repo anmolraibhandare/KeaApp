@@ -21,10 +21,10 @@ class Utilities {
         bottomLine.backgroundColor = UIColor.init(red: 62.0 / 255.0, green: 114.0 / 255.0, blue: 218.0 / 255.0, alpha: 1.0).cgColor
         
         // Remove border on text field
-        textfield.borderStyle = .none
+//        textfield.borderStyle = .none
         
         // Add the line to the text field
-        textfield.layer.addSublayer(bottomLine)
+//        textfield.layer.addSublayer(bottomLine)
         
     }
     
