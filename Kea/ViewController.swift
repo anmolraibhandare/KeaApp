@@ -62,7 +62,7 @@ class ViewController: UIViewController {
         videoPlayerLayer = AVPlayerLayer(player: videoPlayer!)
         
         // Adjust size and frame
-        videoPlayerLayer?.frame = CGRect(x: -self.view.frame.size.width*1.5, y: 0, width: self.view.frame.size.width*4, height: self.view.frame.size.height)
+        videoPlayerLayer?.frame = CGRect(x: -self.view.frame.size.width*1.5, y: 0, width: self.view.frame.size.width*4, height: self.view.frame.size.height/2)
         
         // Insert Player layer
         view.layer.insertSublayer(videoPlayerLayer!, at: 0)
