@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import  FirebaseAuth
+import Firebase
+import FirebaseFirestore
 
 class SignUpViewController: UIViewController {
 
@@ -40,18 +43,57 @@ class SignUpViewController: UIViewController {
         Utilities.styleFilledButton(signUpButton)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // Check the fields and validate data. If correct, return nil otherwise return nil
+    func validateFields() -> String? {
+        
+        // Check all fields are non-empty
+        if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            return "Please fill in all fields"
+        }
+        
+        // Check the password is secure
+        let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        if Utilities.isPasswordValid(cleanedPassword) == false {
+            //Password isn't secure enough
+            return "Please make sure the password is at least 8 characters, contains a special character and a number"
+        }
+        return nil
     }
-    */
+    
 
     @IBAction func signUpTapped(_ sender: Any) {
+        
+        // Validate the fields
+        let error = validateFields()
+        if error != nil {
+            // Show error message
+            showError(error!)
+        } else {
+            
+            
+            
+            // Create the user
+            Auth.auth().createUser(withEmail: "", password: "") { (result, error) in
+                // Check for error
+                if error != nil {
+                    self.showError("Error creating user")
+                } else {
+                    // TODO: VERIFY User created successfully
+                   
+                }
+            }
+            // Transition to home screen
+            
+            
+        }
+    }
+    
+    func showError(_ message: String) {
+        errorLabel.text = message
+        errorLabel.alpha = 1
     }
     
     

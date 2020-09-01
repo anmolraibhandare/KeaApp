@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,8 @@
 		260A350A24FDDCD500008183 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A350924FDDCD500008183 /* LoginViewController.swift */; };
 		260A350C24FDDCE800008183 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A350B24FDDCE800008183 /* HomeViewController.swift */; };
 		260A351024FDE7D200008183 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A350F24FDE7D200008183 /* Utilities.swift */; };
+		260A351224FDF0F400008183 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 260A351124FDF0F400008183 /* GoogleService-Info.plist */; };
+		4AFB71F24B8382BBD12E2E1D /* Pods_Kea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396F75C791CF2A2D703BF278 /* Pods_Kea.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,10 @@
 		260A350924FDDCD500008183 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		260A350B24FDDCE800008183 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		260A350F24FDE7D200008183 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		260A351124FDF0F400008183 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		396F75C791CF2A2D703BF278 /* Pods_Kea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EF69B875F3AD6B0EEF8DBF4 /* Pods-Kea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kea.debug.xcconfig"; path = "Target Support Files/Pods-Kea/Pods-Kea.debug.xcconfig"; sourceTree = "<group>"; };
+		A177F47D209843B34F9A4BD4 /* Pods-Kea.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kea.release.xcconfig"; path = "Target Support Files/Pods-Kea/Pods-Kea.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AFB71F24B8382BBD12E2E1D /* Pods_Kea.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +59,8 @@
 			children = (
 				260A34EB24FDDB4500008183 /* Kea */,
 				260A34EA24FDDB4500008183 /* Products */,
+				98B7D2AC98A84F15B9FEF51E /* Pods */,
+				FED1F510B4F257EDF8A895BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +78,7 @@
 				260A34EC24FDDB4500008183 /* AppDelegate.swift */,
 				260A34EE24FDDB4500008183 /* SceneDelegate.swift */,
 				260A34FD24FDDB4800008183 /* Info.plist */,
+				260A351124FDF0F400008183 /* GoogleService-Info.plist */,
 				260A350E24FDE7B000008183 /* Helpers */,
 				260A350524FDDBFC00008183 /* Controller */,
 				260A350424FDDBF400008183 /* View */,
@@ -122,6 +132,23 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		98B7D2AC98A84F15B9FEF51E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9EF69B875F3AD6B0EEF8DBF4 /* Pods-Kea.debug.xcconfig */,
+				A177F47D209843B34F9A4BD4 /* Pods-Kea.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FED1F510B4F257EDF8A895BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				396F75C791CF2A2D703BF278 /* Pods_Kea.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,9 +156,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 260A350024FDDB4800008183 /* Build configuration list for PBXNativeTarget "Kea" */;
 			buildPhases = (
+				3A1CE87D113569A0914051AE /* [CP] Check Pods Manifest.lock */,
 				260A34E524FDDB4500008183 /* Sources */,
 				260A34E624FDDB4500008183 /* Frameworks */,
 				260A34E724FDDB4500008183 /* Resources */,
+				BE31679616FE9E17DB1E14A5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -183,10 +212,53 @@
 				260A34FC24FDDB4800008183 /* LaunchScreen.storyboard in Resources */,
 				260A34F924FDDB4800008183 /* Assets.xcassets in Resources */,
 				260A34F424FDDB4500008183 /* Main.storyboard in Resources */,
+				260A351224FDF0F400008183 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A1CE87D113569A0914051AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kea-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE31679616FE9E17DB1E14A5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kea/Pods-Kea-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kea/Pods-Kea-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kea/Pods-Kea-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		260A34E524FDDB4500008183 /* Sources */ = {
@@ -342,6 +414,7 @@
 		};
 		260A350124FDDB4800008183 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EF69B875F3AD6B0EEF8DBF4 /* Pods-Kea.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -360,6 +433,7 @@
 		};
 		260A350224FDDB4800008183 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A177F47D209843B34F9A4BD4 /* Pods-Kea.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
