@@ -70,7 +70,5 @@ class ViewController: UIViewController {
         // Display and Play
         videoPlayer?.playImmediately(atRate: 0.5)
     }
-
-
 }
 

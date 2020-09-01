@@ -30,6 +30,10 @@
 		26FF228224FEEE160027FC4B /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26FF227924FEEE160027FC4B /* Poppins-SemiBold.ttf */; };
 		26FF228324FEEE160027FC4B /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26FF227A24FEEE160027FC4B /* Poppins-Light.ttf */; };
 		26FF228424FEEE160027FC4B /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26FF227B24FEEE160027FC4B /* Poppins-Italic.ttf */; };
+		26FF228924FEF8320027FC4B /* Pet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF228524FEF8310027FC4B /* Pet+CoreDataProperties.swift */; };
+		26FF228A24FEF8320027FC4B /* Pet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF228624FEF8310027FC4B /* Pet+CoreDataClass.swift */; };
+		26FF228B24FEF8320027FC4B /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF228724FEF8320027FC4B /* User+CoreDataProperties.swift */; };
+		26FF228C24FEF8320027FC4B /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF228824FEF8320027FC4B /* User+CoreDataClass.swift */; };
 		4AFB71F24B8382BBD12E2E1D /* Pods_Kea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396F75C791CF2A2D703BF278 /* Pods_Kea.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +63,10 @@
 		26FF227924FEEE160027FC4B /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		26FF227A24FEEE160027FC4B /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
 		26FF227B24FEEE160027FC4B /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
+		26FF228524FEF8310027FC4B /* Pet+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pet+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		26FF228624FEF8310027FC4B /* Pet+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pet+CoreDataClass.swift"; sourceTree = "<group>"; };
+		26FF228724FEF8320027FC4B /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		26FF228824FEF8320027FC4B /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		396F75C791CF2A2D703BF278 /* Pods_Kea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF69B875F3AD6B0EEF8DBF4 /* Pods-Kea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kea.debug.xcconfig"; path = "Target Support Files/Pods-Kea/Pods-Kea.debug.xcconfig"; sourceTree = "<group>"; };
 		A177F47D209843B34F9A4BD4 /* Pods-Kea.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kea.release.xcconfig"; path = "Target Support Files/Pods-Kea/Pods-Kea.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +124,10 @@
 			isa = PBXGroup;
 			children = (
 				260A34F524FDDB4500008183 /* Kea.xcdatamodeld */,
+				26FF228624FEF8310027FC4B /* Pet+CoreDataClass.swift */,
+				26FF228524FEF8310027FC4B /* Pet+CoreDataProperties.swift */,
+				26FF228824FEF8320027FC4B /* User+CoreDataClass.swift */,
+				26FF228724FEF8320027FC4B /* User+CoreDataProperties.swift */,
 			);
 			path = "Model ";
 			sourceTree = "<group>";
@@ -325,12 +337,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				260A350A24FDDCD500008183 /* LoginViewController.swift in Sources */,
+				26FF228A24FEF8320027FC4B /* Pet+CoreDataClass.swift in Sources */,
+				26FF228B24FEF8320027FC4B /* User+CoreDataProperties.swift in Sources */,
+				26FF228C24FEF8320027FC4B /* User+CoreDataClass.swift in Sources */,
 				260A34F124FDDB4500008183 /* ViewController.swift in Sources */,
 				260A34F724FDDB4500008183 /* Kea.xcdatamodeld in Sources */,
 				260A34ED24FDDB4500008183 /* AppDelegate.swift in Sources */,
 				260A34EF24FDDB4500008183 /* SceneDelegate.swift in Sources */,
 				260A350C24FDDCE800008183 /* HomeViewController.swift in Sources */,
 				260A351024FDE7D200008183 /* Utilities.swift in Sources */,
+				26FF228924FEF8320027FC4B /* Pet+CoreDataProperties.swift in Sources */,
 				260A350824FDDCC700008183 /* SignUpViewController.swift in Sources */,
 				260A351624FEC48700008183 /* Constants.swift in Sources */,
 			);
