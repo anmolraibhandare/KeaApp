@@ -5,12 +5,12 @@
         <attribute name="kind" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="picture" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
-        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="pets" inverseEntity="User"/>
+        <relationship name="owner" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="pets" inverseEntity="User"/>
     </entity>
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="firstname" attributeType="String"/>
         <attribute name="lastname" attributeType="String"/>
-        <relationship name="pets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pet" inverseName="owner" inverseEntity="Pet"/>
+        <relationship name="pets" toMany="YES" deletionRule="Nullify" destinationEntity="Pet" inverseName="owner" inverseEntity="Pet"/>
     </entity>
     <elements>
         <element name="User" positionX="-282.49609375" positionY="21.234375" width="128" height="88"/>
