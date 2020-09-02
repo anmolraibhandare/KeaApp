@@ -13,11 +13,8 @@ Pet tracking iOS app that allows the users to sign in to the app, add pet and vi
 This app is inspired by my User Experience Nanodegree Final project (Kea - Pet Tracking Application). 
 
 - [Github Link](https://github.com/anmolraibhandare/Kea)
-
 - [Case Study](https://github.com/anmolraibhandare/Kea/blob/master/Kea%20-%20Case%20Study.pdf)
-
 - [Prototype Link](https://www.figma.com/proto/fn7K4NfOouOafKMWGQig96/Kea?node-id=291%3A755&scaling=scale-down)
-
 - [Project Link](https://www.figma.com/file/fn7K4NfOouOafKMWGQig96/Kea?node-id=291%3A0)
 
 #### Technologies Used In Application:
