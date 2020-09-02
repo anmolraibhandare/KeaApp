@@ -142,7 +142,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJO-bE-05x">
-                                <rect key="frame" x="40" y="114" width="334" height="33"/>
+                                <rect key="frame" x="40" y="114" width="334" height="39.5"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="28"/>
                                 <color key="textColor" red="0.24313725489999999" green="0.44705882349999998" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -204,15 +204,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NIX-Ke-pEb">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NIX-Ke-pEb">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="EDU-28-G4v"/>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hfi-K9-Neg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hfi-K9-Neg">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PetCell" rowHeight="142" id="Vzc-9l-q0p" customClass="PetCell" customModule="Kea" customModuleProvider="target">
@@ -289,7 +288,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Hfi-K9-Neg" firstAttribute="top" secondItem="NIX-Ke-pEb" secondAttribute="bottom" id="8eT-v1-ebY"/>
+                            <constraint firstItem="NIX-Ke-pEb" firstAttribute="leading" secondItem="AFL-D1-aqZ" secondAttribute="leading" id="Pz6-Rq-BfA"/>
+                            <constraint firstItem="NIX-Ke-pEb" firstAttribute="trailing" secondItem="Hfi-K9-Neg" secondAttribute="trailing" id="Xrr-Pm-qT9"/>
                             <constraint firstItem="AFL-D1-aqZ" firstAttribute="top" secondItem="NIX-Ke-pEb" secondAttribute="bottom" constant="675" id="qxJ-Th-hJ3"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Hfi-K9-Neg" secondAttribute="bottom" constant="-49" id="slI-c4-cZD"/>
+                            <constraint firstItem="NIX-Ke-pEb" firstAttribute="trailing" secondItem="AFL-D1-aqZ" secondAttribute="trailing" id="uRg-NB-nrP"/>
+                            <constraint firstItem="NIX-Ke-pEb" firstAttribute="leading" secondItem="Hfi-K9-Neg" secondAttribute="leading" id="z7U-ga-4Qt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FjV-4C-pLP"/>
                     </view>
@@ -401,7 +406,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZG-Dd-IT7">
-                                <rect key="frame" x="40" y="114" width="334" height="33"/>
+                                <rect key="frame" x="40" y="114" width="334" height="39.5"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="28"/>
                                 <color key="textColor" red="0.24313725489999999" green="0.44705882349999998" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -431,6 +436,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZTt-u6-uRv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1790" y="-119"/>
+        </scene>
+        <!--User View Controller-->
+        <scene sceneID="8Bv-IQ-SQo">
+            <objects>
+                <viewController storyboardIdentifier="UserVC" title="User View Controller" id="JrJ-vd-eYb" customClass="UserViewController" customModule="Kea" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gSi-2i-fRw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Firstname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCt-Fl-B8Y">
+                                <rect key="frame" x="169" y="437" width="76" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lastname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJc-hh-weV">
+                                <rect key="frame" x="170" y="510" width="75" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="xc1-8p-Wg7"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ahx-lT-qcp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2647.826086956522" y="-374.33035714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HXP-q8-1Eq">

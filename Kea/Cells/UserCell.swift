@@ -7,3 +7,11 @@
 //
 
 import Foundation
+import UIKit
+
+class UserCell: UITableViewCell {
+    
+    @IBOutlet weak var firstname: UILabel!
+    @IBOutlet weak var lastname: UILabel!
+    
+}
