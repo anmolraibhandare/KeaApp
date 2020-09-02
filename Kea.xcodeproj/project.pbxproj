@@ -160,8 +160,8 @@
 			children = (
 				260A34F024FDDB4500008183 /* ViewController.swift */,
 				260A350724FDDCC700008183 /* SignUpViewController.swift */,
-				26FF229C24FF263A0027FC4B /* UserViewController.swift */,
 				260A350924FDDCD500008183 /* LoginViewController.swift */,
+				26FF229C24FF263A0027FC4B /* UserViewController.swift */,
 				260A350B24FDDCE800008183 /* HomeViewController.swift */,
 			);
 			path = Controller;

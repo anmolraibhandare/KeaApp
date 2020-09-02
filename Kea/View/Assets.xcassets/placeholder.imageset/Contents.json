@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "dog-amp-cat-by-alfrey-davilla-vaneltia-dribbble-149607587484gkn.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
