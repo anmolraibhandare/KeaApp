@@ -28,6 +28,7 @@ class UserViewController: UIViewController {
     private var picker = UIImagePickerController()
     private var queryFirstName = ""
     private var queryLastName = ""
+    private var query = ""
 
     private var usersCollectionRef: CollectionReference!
 
@@ -40,6 +41,9 @@ class UserViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
+        
+        self.query = self.userIDfromlogin
+        
         usersCollectionRef.getDocuments { (snapshot, error) in
             if let error = error {
                 debugPrint("Error fetching docs: \(error)")
@@ -65,14 +69,13 @@ class UserViewController: UIViewController {
                         self.queryLastName = self.userData.lastname
                         print("NSObject First Name:  \(user.firstname ?? "f not found") Last Name: \(user.lastname ?? "l not found")")
                         print("Queryyy   \(self.queryFirstName) \(self.queryLastName)")
-                        self.refresh()
-                        self.showEditButton()
+    
                     }
                 }
             }
         }
-//        refresh()
-//        showEditButton()
+        refresh()
+        showEditButton()
     }
     
     override func didReceiveMemoryWarning() {
@@ -113,10 +116,10 @@ class UserViewController: UIViewController {
         
         private func refresh(){
             let request = User.fetchRequest() as NSFetchRequest<User>
-            if !queryFirstName.isEmpty && !queryLastName.isEmpty {
-                request.predicate = NSPredicate(format: "firstname contains[cd] %@ OR lastname contains[cd] %@", queryFirstName, queryLastName)
+            if !query.isEmpty {
+                request.predicate = NSPredicate(format: "userid == %@", query)
             }
-            let sort = NSSortDescriptor(key: #keyPath(User.firstname), ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
+            let sort = NSSortDescriptor(key: #keyPath(User.userid), ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
             request.sortDescriptors = [sort]
             do {
                 fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
