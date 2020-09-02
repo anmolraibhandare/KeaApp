@@ -5,34 +5,38 @@
 //  Created by Anmol Raibhandare on 9/1/20.
 //  Copyright © 2020 Anmol Raibhandare. All rights reserved.
 //
-
+//
 import Foundation
 import UIKit
 import CoreData
 import Firebase
+import FirebaseFirestore
 
 class UserViewController: UIViewController {
+
+    @IBOutlet weak var firstname: UILabel!
+    @IBOutlet weak var lastname: UILabel!
     
-    var userId = "MEahwYgX0sPmTBMkyHNNtQEt9gJ2" // To be set from signup page
+    var userIDfromlogin: String!
     var user: UserData!
     private var fetchResultController: NSFetchedResultsController<User>!
     private var query = ""
     let appDelegate: AppDelegate = { return UIApplication.shared.delegate as! AppDelegate }()
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
+
     private var isFiltered = false
     private var filtered = [String]()
     private var selected:IndexPath!
 
     private var usersCollectionRef: CollectionReference!
-    
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         usersCollectionRef = Firestore.firestore().collection("users")
-        
+
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         usersCollectionRef.getDocuments { (snapshot, error) in
             if let error = error {
@@ -47,10 +51,12 @@ class UserViewController: UIViewController {
                     let lastname = data["lastname"] as? String ?? "Anonymous"
                     let userID = data["uid"] as? String ?? ""
                     print("first name \(firstname), lastname \(lastname)")
-                    
-                    if userID == self.userId {
-                        self.user = UserData(firstname: firstname, lastname: lastname)
+
+                    if userID == self.userIDfromlogin {
+                        self.user = UserData(firstname: firstname, lastname: lastname, uid: self.userIDfromlogin)
                         print("Current User First Name:  \(self.user.firstname) Last Name: \(self.user.lastname)")
+                        self.firstname.text = self.user.firstname
+                        self.lastname.text = self.user.lastname
                     }
                 }
                 self.appDelegate.saveContext()
@@ -58,7 +64,7 @@ class UserViewController: UIViewController {
             }
         }
     }
-    
+
     private func refresh() {
         let request = User.fetchRequest() as NSFetchRequest<User>
         if !query.isEmpty {
@@ -73,9 +79,9 @@ class UserViewController: UIViewController {
             print("Could not Fetch data. \(error), \(error.userInfo)")
         }
     }
-   
+
 }
 
 
-//        firstname.text = user.firstname
-//          lastname.text = user.lastname
+////        firstname.text = user.firstname
+////          lastname.text = user.lastname

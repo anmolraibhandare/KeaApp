@@ -12,9 +12,11 @@ import UIKit
 class UserData {
     var firstname = ""
     var lastname = ""
+    var userid = ""
     
-    init(firstname: String, lastname: String) {
+    init(firstname: String, lastname: String, uid: String) {
         self.firstname = firstname
         self.lastname = lastname
+        self.userid = uid
     }
 }

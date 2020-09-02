@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import FirebaseAuth
 import Firebase
 import FirebaseFirestore
@@ -22,12 +23,33 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
+    // MARK: Variables
+    
+    var user: UserData!
+    private var fetchResultController: NSFetchedResultsController<User>!
+    private var query = ""
+    let appDelegate: AppDelegate = { return UIApplication.shared.delegate as! AppDelegate }()
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+    private var isFiltered = false
+    private var filtered = [String]()
+    private var selected:IndexPath!
+    
     // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpElements()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refresh()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     func setUpElements() {
@@ -62,7 +84,7 @@ class SignUpViewController: UIViewController {
         }
         return nil
     }
-    
+ 
 
     @IBAction func signUpTapped(_ sender: Any) {
         
@@ -84,20 +106,33 @@ class SignUpViewController: UIViewController {
             Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
                 // Check for error
                 if error != nil {
-                    self.showError("Error creating user")
+                    self.errorLabel.text = error!.localizedDescription
                 } else {
                     // User created successfully
                     let db = Firestore.firestore()
                     
-                    db.collection("users").addDocument(data: ["firstname" : firstName, "lastname" : lastName, "uid" : result!.user.uid]) { (error) in
+                    db.collection("users").addDocument(data: ["firstname" : firstName, "lastname" : lastName, "uid" : result!.user.uid, "email" : email, "password" : password]) { (error) in
                         
                         if error != nil {
                             self.errorLabel.text = error!.localizedDescription
 //                            self.showError("Error saving user data")
                         }
+
                     }
+                    let data = UserData(firstname: firstName, lastname: lastName, uid: result!.user.uid)
+                    let user = User(entity: User.entity(), insertInto: self.context)
+                    user.firstname = data.firstname
+                    user.lastname = data.lastname
+                    user.userid = data.userid
+                    self.appDelegate.saveContext()
+                    self.refresh()
+                    
                     // Transition to home screen
-                    self.transitionToHome()
+                    let userViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+                    userViewController?.user = user
+                    self.view.window?.rootViewController = userViewController
+                    self.view.window?.makeKeyAndVisible()
+                    
                 }
             }
         }
@@ -108,11 +143,22 @@ class SignUpViewController: UIViewController {
         errorLabel.alpha = 1
     }
     
-    func transitionToHome() {
-        
-        let userViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.userViewController) as? UserViewController
-        
-        view.window?.rootViewController = userViewController
-        view.window?.makeKeyAndVisible()
+    // MARK:- Navigation
+
+    
+    private func refresh() {
+        let request = User.fetchRequest() as NSFetchRequest<User>
+        if !query.isEmpty {
+            request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", query)
+        }
+        let sort = NSSortDescriptor(key: #keyPath(User.firstname), ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
+        request.sortDescriptors = [sort]
+        do{
+            fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            try fetchResultController.performFetch()
+        } catch let error as NSError {
+            print("Could not Fetch data. \(error), \(error.userInfo)")
+        }
     }
+
 }

@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
+import FirebaseFirestore
 
 class LoginViewController: UIViewController {
 
@@ -18,12 +20,20 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
+    var userId: String!
+    
+    private var usersCollectionRef: CollectionReference!
+    
+    var userData: UserData!
+    var user: User!
+    
     // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpElements()
+        usersCollectionRef = Firestore.firestore().collection("users")
     }
     
     func setUpElements() {
@@ -70,8 +80,13 @@ class LoginViewController: UIViewController {
 //                    self.showError("Error logining in")
                 } else {
                     // User signed in successfully
+                    self.userId = result!.user.uid
+                    
                     // Transition to home screen
-                    self.transitionToHome()
+                    let userViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.userViewController) as? UserViewController
+                    userViewController?.userIDfromlogin = self.userId
+                    self.view.window?.rootViewController = userViewController
+                    self.view.window?.makeKeyAndVisible()
                 }
             }
         }
@@ -80,13 +95,5 @@ class LoginViewController: UIViewController {
     func showError(_ message: String) {
         errorLabel.text = message
         errorLabel.alpha = 1
-    }
-    
-    func transitionToHome() {
-        
-        let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
-        
-        view.window?.rootViewController = homeViewController
-        view.window?.makeKeyAndVisible()
     }
 }

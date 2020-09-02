@@ -1,8 +1,9 @@
 //
 //  User+CoreDataProperties.swift
-//  
+//  Kea
 //
 //  Created by Anmol Raibhandare on 9/1/20.
+//  Copyright © 2020 Anmol Raibhandare. All rights reserved.
 //
 //
 
@@ -18,6 +19,7 @@ extension User {
 
     @NSManaged public var firstname: String?
     @NSManaged public var lastname: String?
+    @NSManaged public var userid: String?
     @NSManaged public var pets: NSSet?
 
 }

@@ -13,13 +13,14 @@ class PetData {
     var name = ""
     var kind = ""
     var picture: Data?
-    var dob = Data()
+    var dob = Date()
     
     private let names = ["Eddie", "Kimchi", "Meetkit", "Handel", "Kinginthenorth", "Rockzilla", "Kuro" ]
     private let kinds = ["Dog", "Cat"]
     
     init() {
         var index = Int(arc4random_uniform(UInt32(names.count)))
+        name = names[index]
         index = Int(arc4random_uniform(UInt32(kinds.count)))
         kind = kinds[index]
     }

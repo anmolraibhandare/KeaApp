@@ -8,11 +8,19 @@
 
 import UIKit
 import CoreData
+import Firebase
+import FirebaseFirestore
 
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    
     var user: User!
+    private var usersCollectionRef: CollectionReference!
+    
+    var emailFromLogin: String!
+    var passwordFromLogin: String!
+    var userData: UserData!
     
     private var fetchResultController: NSFetchedResultsController<Pet>!
     private var query = ""
@@ -21,8 +29,6 @@ class HomeViewController: UIViewController {
         }()
 
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private let formatter = DateFormatter()
     
     private var isFiltered = false
@@ -34,6 +40,34 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         picker.delegate = self
         formatter.dateFormat = "d MM yyy"
+        usersCollectionRef = Firestore.firestore().collection("users")
+        self.usersCollectionRef.getDocuments { (snapshot, error) in
+            if let error = error {
+                debugPrint("Error fetching docs: \(error)")
+            } else {
+                guard let snap = snapshot else {
+                    return
+                }
+                for document in snap.documents {
+                    let data = document.data()
+                    let firstnamefromdata = data["firstname"] as? String ?? "Anonymous"
+                    let lastnamefromdata = data["lastname"] as? String ?? "Anonymous"
+                    let emailfromdata = data["email"] as? String ?? "Anonymous"
+                    let passwordfromdata = data["password"] as? String ?? "Anonymous"
+                    let useridfromdata = data["uid"] as? String ?? ""
+                    
+                    if emailfromdata == self.emailFromLogin && passwordfromdata == self.passwordFromLogin {
+                        self.userData = UserData(firstname: firstnamefromdata, lastname: lastnamefromdata, uid: useridfromdata)
+                        self.user.firstname = self.userData.firstname
+                        self.user.lastname = self.userData.lastname
+                        self.user.userid = self.userData.userid
+                        print(self.user.firstname ?? "nil")
+                        print(self.user.lastname ?? "nil")
+                        print(self.user.userid ?? "nil")
+                    }
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +76,7 @@ class HomeViewController: UIViewController {
     }
     
     private func refresh() {
+        
         let request = Pet.fetchRequest() as NSFetchRequest<Pet>
         if query.isEmpty {
             request.predicate = NSPredicate(format: "owner = %@", user)
@@ -127,7 +162,8 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
         let info = convertInfoKeyDict(info)
         let image = info[convertInfoKey(UIImagePickerController.InfoKey.originalImage)] as! UIImage
         pet.picture = image.pngData() as Data?
-        tableView?.reloadData()
+        appDelegate.saveContext()
+        tableView?.reloadRows(at: [selected], with: UITableView.RowAnimation.automatic)
         picker.dismiss(animated: true, completion: nil)
     }
 }
@@ -142,16 +178,16 @@ fileprivate func convertInfoKey(_ input: UIImagePickerController.InfoKey) -> Str
 
 extension HomeViewController: NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
+
         let index = indexPath ?? (newIndexPath ?? nil)
         guard let cellIndex = index else {
             return
         }
         switch type {
         case .insert:
-            tableView.insertRows(at: [cellIndex], with: UITableView.RowAnimation.top)
+            tableView.insertRows(at: [cellIndex], with: UITableView.RowAnimation.automatic)
         case .delete:
-            tableView.deleteRows(at: [cellIndex], with: UITableView.RowAnimation.top)
+            tableView.deleteRows(at: [cellIndex], with: UITableView.RowAnimation.automatic)
         default:
             break
         }
