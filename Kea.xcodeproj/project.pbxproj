@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,6 +39,7 @@
 		26FF22B524FF678F0027FC4B /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF22B124FF678F0027FC4B /* User+CoreDataProperties.swift */; };
 		26FF22B624FF678F0027FC4B /* Pet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF22B224FF678F0027FC4B /* Pet+CoreDataClass.swift */; };
 		26FF22B724FF678F0027FC4B /* Pet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF22B324FF678F0027FC4B /* Pet+CoreDataProperties.swift */; };
+		26FF22BE25004A6C0027FC4B /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 26FF22BD25004A6C0027FC4B /* SDWebImageSwiftUI */; };
 		4AFB71F24B8382BBD12E2E1D /* Pods_Kea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396F75C791CF2A2D703BF278 /* Pods_Kea.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26FF22BE25004A6C0027FC4B /* SDWebImageSwiftUI in Frameworks */,
 				4AFB71F24B8382BBD12E2E1D /* Pods_Kea.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +253,9 @@
 			dependencies = (
 			);
 			name = Kea;
+			packageProductDependencies = (
+				26FF22BD25004A6C0027FC4B /* SDWebImageSwiftUI */,
+			);
 			productName = Kea;
 			productReference = 260A34E924FDDB4500008183 /* Kea.app */;
 			productType = "com.apple.product-type.application";
@@ -279,6 +284,9 @@
 				Base,
 			);
 			mainGroup = 260A34E024FDDB4500008183;
+			packageReferences = (
+				26FF22BC25004A6B0027FC4B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 260A34EA24FDDB4500008183 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -576,6 +584,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		26FF22BC25004A6B0027FC4B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		26FF22BD25004A6C0027FC4B /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 26FF22BC25004A6B0027FC4B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		260A34F524FDDB4500008183 /* Kea.xcdatamodeld */ = {

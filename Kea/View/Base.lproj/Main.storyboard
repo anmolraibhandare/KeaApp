@@ -180,7 +180,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NIX-Ke-pEb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="0.0"/>
                                 <items>
                                     <navigationItem title="Title" id="EDU-28-G4v"/>
                                 </items>
@@ -202,7 +202,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZuE-2a-1RO" userLabel="Picture Image View">
                                                     <rect key="frame" x="20" y="11" width="98" height="120.5"/>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9M2-vd-LXy">
                                                     <rect key="frame" x="126" y="24" width="249" height="21.5"/>
@@ -290,6 +290,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FjV-4C-pLP"/>
                     </view>
+                    <navigationItem key="navigationItem" id="yTw-Eq-E0G"/>
                     <connections>
                         <outlet property="tableView" destination="Hfi-K9-Neg" id="Ut0-dr-4X9"/>
                     </connections>
@@ -302,6 +303,21 @@
                 </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4257.971014492754" y="379.6875"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="RtS-LM-BMk">
+            <objects>
+                <viewController id="HAz-ur-0oB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KyA-yR-PS3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="gM5-d9-bba"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c9S-24-N61" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5158" y="380"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wj2-DB-5y2">
@@ -322,10 +338,10 @@
             </objects>
             <point key="canvasLocation" x="2751" y="380"/>
         </scene>
-        <!--Nearby Users-->
+        <!--Welcome-->
         <scene sceneID="LBm-cx-yHg">
             <objects>
-                <viewController id="qsM-H7-icO" customClass="UserViewController" customModule="Kea" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserVC" id="qsM-H7-icO" customClass="UserViewController" customModule="Kea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OBw-D1-ti0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -339,6 +355,9 @@
                                 <state key="normal" title="Add User">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="addUser:" destination="qsM-H7-icO" eventType="touchUpInside" id="Uw9-aV-NSq"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on the User List to view their pets" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOD-tZ-t7Q">
                                 <rect key="frame" x="40" y="801.5" width="334" height="20.5"/>
@@ -350,7 +369,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="613.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="hzs-z1-1gk" detailTextLabel="Geh-Tr-9WD" rowHeight="70" style="IBUITableViewCellStyleValue2" id="ags-6x-fEW">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserCell" textLabel="hzs-z1-1gk" detailTextLabel="Geh-Tr-9WD" rowHeight="70" style="IBUITableViewCellStyleValue2" id="ags-6x-fEW" customClass="UserCell" customModule="Kea" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ags-6x-fEW" id="AK2-ZV-tfp">
@@ -373,6 +392,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="firstname" destination="hzs-z1-1gk" id="zzO-Lo-FxV"/>
+                                            <outlet property="lastname" destination="Geh-Tr-9WD" id="lBa-1C-jLh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -397,7 +420,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yAc-eH-UDn"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Nearby Users" id="jcg-9a-hJs"/>
+                    <navigationItem key="navigationItem" title="Welcome" id="jcg-9a-hJs"/>
+                    <connections>
+                        <outlet property="tableView" destination="Kow-wQ-wa0" id="SUD-Qa-xJw"/>
+                        <segue destination="XBV-Sz-H2L" kind="show" identifier="HomeVC" id="9kO-pt-zZl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xz0-Aj-RDt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -510,6 +537,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="placeholder" width="800" height="600"/>
+        <image name="placeholder" width="80" height="60"/>
     </resources>
 </document>

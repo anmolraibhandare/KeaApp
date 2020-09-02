@@ -83,7 +83,7 @@ class LoginViewController: UIViewController {
                     self.userId = result!.user.uid
                     
                     // Transition to home screen
-                    let userViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.userViewController) as? UserViewController
+                    let userViewController = self.storyboard?.instantiateViewController(identifier: "UserVC") as? UserViewController
                     userViewController?.userIDfromlogin = self.userId
                     self.view.window?.rootViewController = userViewController
                     self.view.window?.makeKeyAndVisible()

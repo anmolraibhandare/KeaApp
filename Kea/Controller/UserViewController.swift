@@ -15,18 +15,19 @@ import FirebaseFirestore
 class UserViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-
+    
     var userIDfromlogin: String!
     var userData: UserData!
     
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var fetchResultController: NSFetchedResultsController<User>!
-    private var filtered = [User]()
+    private var filtered = User()
     private var isFiltered = false
     private var selected:IndexPath!
     private var picker = UIImagePickerController()
-    private var query = ""
+    private var queryFirstName = ""
+    private var queryLastName = ""
 
     private var usersCollectionRef: CollectionReference!
 
@@ -34,7 +35,7 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         usersCollectionRef = Firestore.firestore().collection("users")
         picker.delegate = self
-
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -60,41 +61,46 @@ class UserViewController: UIViewController {
                         user.firstname = self.userData.firstname
                         user.lastname = self.userData.lastname
                         user.userid = self.userData.userid
+                        self.queryFirstName = self.userData.firstname
+                        self.queryLastName = self.userData.lastname
                         print("NSObject First Name:  \(user.firstname ?? "f not found") Last Name: \(user.lastname ?? "l not found")")
-                        self.appDelegate.saveContext()
+                        print("Queryyy   \(self.queryFirstName) \(self.queryLastName)")
                         self.refresh()
+                        self.showEditButton()
                     }
                 }
             }
         }
+//        refresh()
+//        showEditButton()
     }
     
     override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
-        }
-
-        // MARK:- Navigation
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "HomeVC" {
-                if let index = sender as? IndexPath {
-                    let pvc = segue.destination as! HomeViewController
-                    let user = fetchResultController.object(at: index)
-                    pvc.user = user
-                }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "HomeVC" {
+            if let index = sender as? IndexPath {
+                let pvc = segue.destination as! HomeViewController
+                let user = fetchResultController.object(at: index)
+                pvc.user = user
             }
         }
-
-        // MARK:- Actions
-        @IBAction func addFriend() {
-            var data = userData
-            let friend = User(entity: User.entity(), insertInto: context)
-            appDelegate.saveContext()
-            refresh()
-            tableView.reloadData()
-            showEditButton()
-        }
-        
+    }
+    
+    @IBAction func addUser(_ sender: Any) {
+        var data = userData
+        let user = User(entity: User.entity(), insertInto: context)
+        user .firstname = data?.firstname
+        user.lastname = data?.lastname
+        appDelegate.saveContext()
+        refresh()
+        tableView.reloadData()
+        showEditButton()
+    }
+    
         // MARK:- Private Methods
         private func showEditButton() {
             guard let objs = fetchResultController.fetchedObjects else {
@@ -107,8 +113,8 @@ class UserViewController: UIViewController {
         
         private func refresh(){
             let request = User.fetchRequest() as NSFetchRequest<User>
-            if !query.isEmpty {
-                request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", query)
+            if !queryFirstName.isEmpty && !queryLastName.isEmpty {
+                request.predicate = NSPredicate(format: "firstname contains[cd] %@ OR lastname contains[cd] %@", queryFirstName, queryLastName)
             }
             let sort = NSSortDescriptor(key: #keyPath(User.firstname), ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
             request.sortDescriptors = [sort]
@@ -121,7 +127,7 @@ class UserViewController: UIViewController {
         }
     }
 
-    // Collection View Delegates
+// Table View Delegates
 extension UserViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
