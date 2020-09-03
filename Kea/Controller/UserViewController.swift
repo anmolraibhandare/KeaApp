@@ -9,12 +9,18 @@
 import Foundation
 import UIKit
 import CoreData
+import MapKit
+import CoreLocation
 import Firebase
 import FirebaseFirestore
 
 class UserViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var mapView: MKMapView!
+    
+    let locationManager = CLLocationManager()
+    let regionInMeter: Double = 10000
     
     var userIDfromlogin: String!
     var userData: UserData!
@@ -36,7 +42,7 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         usersCollectionRef = Firestore.firestore().collection("users")
         picker.delegate = self
-        
+        checkLocationServices()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -93,18 +99,6 @@ class UserViewController: UIViewController {
         }
     }
     
-    @IBAction func addUser(_ sender: Any) {
-        var data = userData
-        let user = User(entity: User.entity(), insertInto: context)
-        user .firstname = data?.firstname
-        user.lastname = data?.lastname
-        appDelegate.saveContext()
-        refresh()
-        tableView.reloadData()
-        showEditButton()
-    }
-    
-        // MARK:- Private Methods
         private func showEditButton() {
             guard let objs = fetchResultController.fetchedObjects else {
                 return
@@ -128,7 +122,61 @@ class UserViewController: UIViewController {
                 print("Could not fetch \(error), \(error.userInfo)")
             }
         }
+    
+    func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
     }
+    
+    func centerViewOnUserLocation() {
+        if let location = locationManager.location?.coordinate {
+            let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionInMeter, longitudinalMeters: regionInMeter)
+            mapView.setRegion(region, animated: true)
+        }
+    }
+    
+    func checkLocationServices() {
+        // Check if the user's iphone supports location services
+        if CLLocationManager.locationServicesEnabled() {
+            
+            // Setup our location manager
+            setupLocationManager()
+            // Check Location Authorization
+            checkLocationAuthoriztion()
+            
+        } else {
+            
+            // Show alert to let users know that the location services needs to be turned on
+            
+        }
+    }
+    
+    func checkLocationAuthoriztion() {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse:
+            // Locate the user's map locations
+            mapView.showsUserLocation = true
+            centerViewOnUserLocation()
+            locationManager.startUpdatingLocation()
+            break
+        case .denied:
+            // Show alert instructing users how to turn on permissions
+            break
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+            break
+        case .restricted:
+            // Show an alert letting them know what's up
+            break
+        case .authorizedAlways:
+            break
+        }
+    }
+    
+    
+    
+}
 
 // Table View Delegates
 extension UserViewController: UITableViewDelegate, UITableViewDataSource {
@@ -184,3 +232,18 @@ extension UserViewController: UITableViewDelegate, UITableViewDataSource {
         return input.rawValue
     }
 
+
+extension UserViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeter, longitudinalMeters: regionInMeter)
+        mapView.setRegion(region, animated: true)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        checkLocationAuthoriztion()
+    }
+    
+}
