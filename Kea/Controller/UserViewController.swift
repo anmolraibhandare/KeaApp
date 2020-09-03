@@ -24,6 +24,7 @@ class UserViewController: UIViewController {
     let locationManager = CLLocationManager()
     let regionInMeter: Double = 10000
     var previousLocation: CLLocation?
+    var directionsArray: [MKDirections] = []
     
     var userIDfromlogin: String!
     var userData: UserData!
@@ -190,6 +191,68 @@ class UserViewController: UIViewController {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
+    func getDirections() {
+        guard let location = locationManager.location?.coordinate else {
+            // Inform user on not having a current location
+            return
+        }
+        
+        // Create request
+        let request = createDirectionsRequest(from: location)
+        let directions = MKDirections(request: request)
+        resetMapView(withNew: directions)
+        
+        directions.calculate { [unowned self] (response, error) in
+            // Handle error
+            guard let response = response else {
+                // Show alert
+                return
+            }
+            
+            // Response is array of routes. Because we requested alternate routes
+            for route in response.routes {
+                self.mapView.addOverlay(route.polyline)
+                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+            }
+        }
+    }
+    
+    func createDirectionsRequest(from coordinate: CLLocationCoordinate2D) -> MKDirections.Request {
+        
+        // Request needs a starting and ending location
+        // Destination is center of map view
+        // Starting is the user location
+        // Pass in the destination coordinate to destination location
+        let destinationCoordinate = getCenterLocation(for: mapView).coordinate
+        let startingLocation = MKPlacemark(coordinate: coordinate)
+        let destination = MKPlacemark(coordinate: destinationCoordinate)
+        
+        // Make request
+        let request = MKDirections.Request()
+        
+        // Start location, destination location
+        // Transportation can be walk
+        // Alternate routes is true
+        request.source = MKMapItem(placemark: startingLocation)
+        request.destination = MKMapItem(placemark: destination)
+        request.transportType = .walking
+        request.requestsAlternateRoutes = true
+        
+        return request
+    }
+    
+    func resetMapView(withNew directions: MKDirections) {
+        mapView.removeOverlays(mapView.overlays)
+        directionsArray.append(directions)
+        let _ = directionsArray.map {
+            $0.cancel()
+        }
+    }
+    
+    @IBAction func goButtonTapped(_ sender: UIButton) {
+        // Get directions
+        getDirections()
+    }
     
     
 }
@@ -301,6 +364,14 @@ extension UserViewController: MKMapViewDelegate {
                 self.addressLabel.text = "\(streetNumber) \(streetName)"
             }
         }
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let render = MKPolylineRenderer(overlay: overlay as! MKPolyline)
+        render.strokeColor = .blue
+        
+        return render
     }
     
     
