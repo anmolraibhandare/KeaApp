@@ -342,16 +342,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="iKJ-s1-so7">
-                                <rect key="frame" x="0.0" y="140" width="414" height="803"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <connections>
                                     <outlet property="delegate" destination="qsM-H7-icO" id="8sW-xk-TCd"/>
                                 </connections>
                             </mapView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="ARq-Zg-QVm">
+                                <rect key="frame" x="187" y="408" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="FSu-zX-RgV"/>
+                                    <constraint firstAttribute="width" constant="40" id="mNl-mw-mvm"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nN-3C-5PK">
+                                <rect key="frame" x="0.0" y="822" width="414" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ehn-GY-HOX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on your name to view pet details!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOD-tZ-t7Q">
+                                <rect key="frame" x="64.5" y="165" width="285" height="30"/>
+                                <color key="backgroundColor" red="0.24313725489999999" green="0.44705882349999998" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="44x-AO-sVc"/>
+                                    <constraint firstAttribute="width" constant="285" id="S9h-KU-i8b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9Bb-Th-WTT">
-                                <rect key="frame" x="0.0" y="759" width="414" height="103"/>
+                                <rect key="frame" x="0.0" y="719" width="414" height="103"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="103" id="bOT-fA-roJ"/>
+                                    <constraint firstAttribute="height" constant="103" id="03P-xO-U2U"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserCell" textLabel="brr-FT-NyT" detailTextLabel="Il9-bP-OME" rowHeight="50" style="IBUITableViewCellStyleValue2" id="gDF-HW-Uij" customClass="UserCell" customModule="Kea" customModuleProvider="target">
@@ -389,26 +417,20 @@
                                     <outlet property="delegate" destination="qsM-H7-icO" id="ZKN-qr-VmW"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on your name to view pet details!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOD-tZ-t7Q">
-                                <rect key="frame" x="64.5" y="165" width="285" height="30"/>
-                                <color key="backgroundColor" red="0.24313725489999999" green="0.44705882349999998" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="44x-AO-sVc"/>
-                                    <constraint firstAttribute="width" constant="285" id="S9h-KU-i8b"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="MOD-tZ-t7Q" firstAttribute="top" secondItem="yAc-eH-UDn" secondAttribute="top" constant="25" id="0mw-CZ-KWB"/>
-                            <constraint firstItem="iKJ-s1-so7" firstAttribute="leading" secondItem="9Bb-Th-WTT" secondAttribute="leading" id="BCq-Rx-pPI"/>
-                            <constraint firstItem="MOD-tZ-t7Q" firstAttribute="centerX" secondItem="9Bb-Th-WTT" secondAttribute="centerX" id="TEK-R4-CoM"/>
+                            <constraint firstItem="1nN-3C-5PK" firstAttribute="leading" secondItem="yAc-eH-UDn" secondAttribute="leading" id="9ov-ql-sie"/>
+                            <constraint firstItem="1nN-3C-5PK" firstAttribute="top" secondItem="9Bb-Th-WTT" secondAttribute="bottom" id="CkX-tu-G8M"/>
+                            <constraint firstItem="ARq-Zg-QVm" firstAttribute="centerY" secondItem="OBw-D1-ti0" secondAttribute="centerY" constant="-20" id="Nhr-Rk-HF8"/>
+                            <constraint firstItem="9Bb-Th-WTT" firstAttribute="trailing" secondItem="yAc-eH-UDn" secondAttribute="trailing" id="REu-lm-Yms"/>
+                            <constraint firstItem="9Bb-Th-WTT" firstAttribute="leading" secondItem="yAc-eH-UDn" secondAttribute="leading" id="TBg-Yx-1lD"/>
                             <constraint firstItem="iKJ-s1-so7" firstAttribute="top" secondItem="yAc-eH-UDn" secondAttribute="top" id="TWj-kQ-WhT"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="iKJ-s1-so7" secondAttribute="bottom" constant="-81" id="jYy-8S-rfK"/>
-                            <constraint firstItem="yAc-eH-UDn" firstAttribute="bottom" secondItem="9Bb-Th-WTT" secondAttribute="bottom" id="vXb-M7-Glc"/>
+                            <constraint firstItem="ARq-Zg-QVm" firstAttribute="centerX" secondItem="OBw-D1-ti0" secondAttribute="centerX" id="Xa4-dZ-SFY"/>
+                            <constraint firstItem="iKJ-s1-so7" firstAttribute="bottom" secondItem="yAc-eH-UDn" secondAttribute="bottom" id="cQd-pz-vGI"/>
+                            <constraint firstItem="yAc-eH-UDn" firstAttribute="trailing" secondItem="1nN-3C-5PK" secondAttribute="trailing" id="foa-LM-Nli"/>
+                            <constraint firstItem="yAc-eH-UDn" firstAttribute="bottom" secondItem="1nN-3C-5PK" secondAttribute="bottom" id="q3z-0j-v9a"/>
                             <constraint firstItem="iKJ-s1-so7" firstAttribute="leading" secondItem="yAc-eH-UDn" secondAttribute="leading" id="wit-gA-ovT"/>
                             <constraint firstItem="MOD-tZ-t7Q" firstAttribute="centerX" secondItem="OBw-D1-ti0" secondAttribute="centerX" id="zDu-dM-2qv"/>
                             <constraint firstItem="MOD-tZ-t7Q" firstAttribute="centerX" secondItem="iKJ-s1-so7" secondAttribute="centerX" id="zsd-0S-Uq0"/>
@@ -418,7 +440,7 @@
                     <navigationItem key="navigationItem" title="Welcome" largeTitleDisplayMode="always" id="1YM-zB-dRf"/>
                     <connections>
                         <outlet property="mapView" destination="iKJ-s1-so7" id="aAb-mP-Hss"/>
-                        <outlet property="tableView" destination="9Bb-Th-WTT" id="GcV-6a-cq4"/>
+                        <outlet property="tableView" destination="9Bb-Th-WTT" id="uog-Pg-hYZ"/>
                         <segue destination="XBV-Sz-H2L" kind="show" identifier="HomeVC" id="9kO-pt-zZl"/>
                     </connections>
                 </viewController>
@@ -533,6 +555,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Image" width="512" height="512"/>
         <image name="placeholder" width="80" height="60"/>
     </resources>
 </document>
