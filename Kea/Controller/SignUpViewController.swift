@@ -128,8 +128,8 @@ class SignUpViewController: UIViewController {
                     self.refresh()
                     
                     // Transition to home screen
-                    let userViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
-                    userViewController?.user = user
+                    let userViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.userViewController) as? UserViewController
+                    userViewController?.userIDfromlogin = user.userid
                     self.view.window?.rootViewController = userViewController
                     self.view.window?.makeKeyAndVisible()
                     

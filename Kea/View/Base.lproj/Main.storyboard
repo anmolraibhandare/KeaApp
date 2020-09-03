@@ -347,7 +347,7 @@
                                     <outlet property="delegate" destination="qsM-H7-icO" id="8sW-xk-TCd"/>
                                 </connections>
                             </mapView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="ARq-Zg-QVm">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="ARq-Zg-QVm">
                                 <rect key="frame" x="187" y="408" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="FSu-zX-RgV"/>
@@ -390,14 +390,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="brr-FT-NyT">
-                                                    <rect key="frame" x="20" y="25" width="91" height="20"/>
+                                                    <rect key="frame" x="20" y="23" width="91" height="24"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Il9-bP-OME">
-                                                    <rect key="frame" x="117" y="25" width="43.5" height="20"/>
+                                                    <rect key="frame" x="117" y="23" width="49" height="24"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -417,16 +417,29 @@
                                     <outlet property="delegate" destination="qsM-H7-icO" id="ZKN-qr-VmW"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBc-hQ-riF">
+                                <rect key="frame" x="324" y="662" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="Iha-aw-LB3"/>
+                                    <constraint firstAttribute="width" constant="70" id="dUr-ag-z1d"/>
+                                </constraints>
+                                <state key="normal" image="walk"/>
+                                <connections>
+                                    <action selector="goButtonTapped:" destination="qsM-H7-icO" eventType="touchUpInside" id="47Y-vU-Z4C"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="MOD-tZ-t7Q" firstAttribute="top" secondItem="yAc-eH-UDn" secondAttribute="top" constant="25" id="0mw-CZ-KWB"/>
                             <constraint firstItem="1nN-3C-5PK" firstAttribute="leading" secondItem="yAc-eH-UDn" secondAttribute="leading" id="9ov-ql-sie"/>
+                            <constraint firstItem="9Bb-Th-WTT" firstAttribute="top" secondItem="bBc-hQ-riF" secondAttribute="bottom" constant="20" id="CKb-br-AZP"/>
                             <constraint firstItem="1nN-3C-5PK" firstAttribute="top" secondItem="9Bb-Th-WTT" secondAttribute="bottom" id="CkX-tu-G8M"/>
                             <constraint firstItem="ARq-Zg-QVm" firstAttribute="centerY" secondItem="OBw-D1-ti0" secondAttribute="centerY" constant="-20" id="Nhr-Rk-HF8"/>
                             <constraint firstItem="9Bb-Th-WTT" firstAttribute="trailing" secondItem="yAc-eH-UDn" secondAttribute="trailing" id="REu-lm-Yms"/>
                             <constraint firstItem="9Bb-Th-WTT" firstAttribute="leading" secondItem="yAc-eH-UDn" secondAttribute="leading" id="TBg-Yx-1lD"/>
                             <constraint firstItem="iKJ-s1-so7" firstAttribute="top" secondItem="yAc-eH-UDn" secondAttribute="top" id="TWj-kQ-WhT"/>
+                            <constraint firstItem="yAc-eH-UDn" firstAttribute="trailing" secondItem="bBc-hQ-riF" secondAttribute="trailing" constant="20" id="TWn-gc-gYs"/>
                             <constraint firstItem="ARq-Zg-QVm" firstAttribute="centerX" secondItem="OBw-D1-ti0" secondAttribute="centerX" id="Xa4-dZ-SFY"/>
                             <constraint firstItem="iKJ-s1-so7" firstAttribute="bottom" secondItem="yAc-eH-UDn" secondAttribute="bottom" id="cQd-pz-vGI"/>
                             <constraint firstItem="yAc-eH-UDn" firstAttribute="trailing" secondItem="1nN-3C-5PK" secondAttribute="trailing" id="foa-LM-Nli"/>
@@ -556,7 +569,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Image" width="512" height="512"/>
+        <image name="location" width="512" height="512"/>
         <image name="placeholder" width="80" height="60"/>
+        <image name="walk" width="1400" height="1400"/>
     </resources>
 </document>
