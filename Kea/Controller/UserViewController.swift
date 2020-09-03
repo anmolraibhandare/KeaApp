@@ -17,11 +17,13 @@ import FirebaseFirestore
 class UserViewController: UIViewController {
 
 
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
     let regionInMeter: Double = 10000
+    var previousLocation: CLLocation?
     
     var userIDfromlogin: String!
     var userData: UserData!
@@ -155,12 +157,11 @@ class UserViewController: UIViewController {
     
     func checkLocationAuthoriztion() {
         switch CLLocationManager.authorizationStatus() {
+            
         case .authorizedWhenInUse:
             // Locate the user's map locations
-            mapView.showsUserLocation = true
-            centerViewOnUserLocation()
-            locationManager.startUpdatingLocation()
-            break
+            startTrackingUserLocation()
+            
         case .denied:
             // Show alert instructing users how to turn on permissions
             break
@@ -175,6 +176,20 @@ class UserViewController: UIViewController {
         }
     }
     
+    func startTrackingUserLocation() {
+        mapView.showsUserLocation = true
+        centerViewOnUserLocation()
+        locationManager.startUpdatingLocation()
+        previousLocation = getCenterLocation(for: mapView)
+    }
+    
+    func getCenterLocation(for mapView: MKMapView) -> CLLocation {
+        let latitude = mapView.centerCoordinate.latitude
+        let longitude = mapView.centerCoordinate.longitude
+        
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
+    
     
     
 }
@@ -187,7 +202,7 @@ extension UserViewController: UITableViewDelegate, UITableViewDataSource {
             sections[section].objects else {
                 return 0
         }
-        return objs.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -235,16 +250,58 @@ extension UserViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 extension UserViewController: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeter, longitudinalMeters: regionInMeter)
-        mapView.setRegion(region, animated: true)
-    }
+//
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        guard let location = locations.last else { return }
+//        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+//        let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeter, longitudinalMeters: regionInMeter)
+//        mapView.setRegion(region, animated: true)
+//    }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         checkLocationAuthoriztion()
     }
+    
+}
+
+extension UserViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        let center = getCenterLocation(for: mapView)
+        let geoCoder = CLGeocoder()
+        
+        guard let previousLocation = self.previousLocation else {
+            return
+        }
+        
+        guard center.distance(from: previousLocation) > 50 else {
+            return
+        }
+        self.previousLocation = center
+        
+        geoCoder.reverseGeocodeLocation(center) { [weak self] (placemarkers, error) in
+            guard let self = self else {
+                return
+            }
+            
+            if let _ = error {
+                // Show alert
+                return
+            }
+            
+            guard let placemark = placemarkers?.first else {
+                // Show alert
+                return
+            }
+            
+            let streetNumber = placemark.subThoroughfare ?? ""
+            let streetName = placemark.thoroughfare ?? ""
+            
+            DispatchQueue.main.async {
+                self.addressLabel.text = "\(streetNumber) \(streetName)"
+            }
+        }
+    }
+    
     
 }
