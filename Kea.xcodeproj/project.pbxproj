@@ -128,7 +128,7 @@
 				260A350324FDDBDC00008183 /* Model  */,
 				260A350524FDDBFC00008183 /* Controller */,
 				260A350424FDDBF400008183 /* View */,
-				260A350624FDDC0400008183 /* Networking */,
+				260A350624FDDC0400008183 /* Network */,
 			);
 			path = Kea;
 			sourceTree = "<group>";
@@ -169,11 +169,11 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		260A350624FDDC0400008183 /* Networking */ = {
+		260A350624FDDC0400008183 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Networking;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		260A350E24FDE7B000008183 /* Helpers */ = {
