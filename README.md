@@ -1,7 +1,7 @@
 # KeaApp
 Pet tracking OS app that allows the users to: Sign in to the app, search for a dog breed and add random pet image, pin a location to get all the path from current locations.
 
-##### Overview
+### Overview
 Features used in the application:\
 `AVKit` - to place the video image on the main view controller\
 `Firebase` - to Sign in and Sign up to the app\
