@@ -147,11 +147,16 @@
                                 <color key="textColor" red="0.24313725489999999" green="0.44705882349999998" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="8OO-29-K0O">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="SKY-8G-8Yw" firstAttribute="bottom" secondItem="Otw-MJ-gTe" secondAttribute="bottom" constant="40" id="0LV-HZ-mKJ"/>
+                            <constraint firstItem="8OO-29-K0O" firstAttribute="centerY" secondItem="HJb-0R-elU" secondAttribute="centerY" id="36z-kt-zwZ"/>
                             <constraint firstItem="SKY-8G-8Yw" firstAttribute="trailing" secondItem="OJO-bE-05x" secondAttribute="trailing" constant="40" id="ALT-fG-cdZ"/>
+                            <constraint firstItem="8OO-29-K0O" firstAttribute="centerX" secondItem="HJb-0R-elU" secondAttribute="centerX" id="D0K-ft-y5z"/>
                             <constraint firstItem="SKY-8G-8Yw" firstAttribute="trailing" secondItem="Otw-MJ-gTe" secondAttribute="trailing" constant="40" id="FM1-V8-TYa"/>
                             <constraint firstItem="OJO-bE-05x" firstAttribute="leading" secondItem="SKY-8G-8Yw" secondAttribute="leading" constant="40" id="Qok-7q-8P5"/>
                             <constraint firstItem="Otw-MJ-gTe" firstAttribute="leading" secondItem="SKY-8G-8Yw" secondAttribute="leading" constant="40" id="R9v-TH-oIw"/>
@@ -161,6 +166,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="8vC-JT-YhI"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="8OO-29-K0O" id="k7D-u2-4Jw"/>
                         <outlet property="emailTextField" destination="im2-Up-qsr" id="CzQ-qy-a30"/>
                         <outlet property="errorLabel" destination="VyZ-jw-NJC" id="fS8-yT-QcF"/>
                         <outlet property="loginButton" destination="R0L-xN-OHz" id="Jft-pK-Shu"/>
@@ -263,7 +269,7 @@
                                     <constraint firstAttribute="height" constant="50" id="BoI-OX-NOR"/>
                                     <constraint firstAttribute="width" constant="50" id="vYK-Tg-7ab"/>
                                 </constraints>
-                                <state key="normal" image="Add"/>
+                                <state key="normal" image="plus.circle.fill" catalog="system"/>
                                 <connections>
                                     <action selector="addPet:" destination="XBV-Sz-H2L" eventType="touchUpInside" id="Zkz-pC-M46"/>
                                 </connections>
@@ -326,7 +332,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="YoF-gH-Hki">
-                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <rect key="frame" x="197" y="550" width="20" height="20"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9DZ-10-Pct">
                                 <rect key="frame" x="0.0" y="762" width="414" height="50"/>
@@ -348,22 +354,23 @@
                             <constraint firstItem="2qe-IE-P0c" firstAttribute="leading" secondItem="gM5-d9-bba" secondAttribute="leading" id="7Zk-eb-zKE"/>
                             <constraint firstItem="gM5-d9-bba" firstAttribute="trailing" secondItem="2qe-IE-P0c" secondAttribute="trailing" id="AG1-EW-eUE"/>
                             <constraint firstItem="iiJ-hE-0hl" firstAttribute="trailing" secondItem="gM5-d9-bba" secondAttribute="trailing" id="Jpg-xd-ylW"/>
+                            <constraint firstItem="YoF-gH-Hki" firstAttribute="centerX" secondItem="kA0-fb-rSl" secondAttribute="centerX" id="Nhc-iT-3qz"/>
                             <constraint firstItem="gM5-d9-bba" firstAttribute="bottom" secondItem="2qe-IE-P0c" secondAttribute="bottom" id="Sdh-up-8Kf"/>
+                            <constraint firstItem="YoF-gH-Hki" firstAttribute="centerY" secondItem="kA0-fb-rSl" secondAttribute="centerY" id="SvL-8O-RcB"/>
                             <constraint firstItem="kA0-fb-rSl" firstAttribute="top" secondItem="gM5-d9-bba" secondAttribute="top" constant="214" id="VQW-pX-vyG"/>
                             <constraint firstItem="kA0-fb-rSl" firstAttribute="bottom" secondItem="gM5-d9-bba" secondAttribute="bottom" id="Wz3-AS-8A3"/>
-                            <constraint firstItem="YoF-gH-Hki" firstAttribute="centerY" secondItem="KyA-yR-PS3" secondAttribute="centerY" id="etF-A6-fi1"/>
                             <constraint firstItem="9DZ-10-Pct" firstAttribute="leading" secondItem="gM5-d9-bba" secondAttribute="leading" id="evQ-ci-Ivi"/>
                             <constraint firstItem="gM5-d9-bba" firstAttribute="trailing" secondItem="9DZ-10-Pct" secondAttribute="trailing" id="im5-ni-hZI"/>
                             <constraint firstItem="iiJ-hE-0hl" firstAttribute="leading" secondItem="gM5-d9-bba" secondAttribute="leading" id="kEn-xU-9bg"/>
                             <constraint firstItem="2qe-IE-P0c" firstAttribute="top" secondItem="9DZ-10-Pct" secondAttribute="bottom" id="ngm-g5-TV7"/>
                             <constraint firstItem="kA0-fb-rSl" firstAttribute="leading" secondItem="gM5-d9-bba" secondAttribute="leading" id="y5s-aQ-Q1C"/>
                             <constraint firstItem="kA0-fb-rSl" firstAttribute="trailing" secondItem="gM5-d9-bba" secondAttribute="trailing" id="zNn-el-n0l"/>
-                            <constraint firstItem="YoF-gH-Hki" firstAttribute="centerX" secondItem="KyA-yR-PS3" secondAttribute="centerX" id="zxU-O0-rdt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gM5-d9-bba"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="YoF-gH-Hki" id="fTJ-6G-dzZ"/>
                         <outlet property="imageView" destination="kA0-fb-rSl" id="VTJ-Ea-h1j"/>
                         <outlet property="pickerView" destination="iiJ-hE-0hl" id="Vbb-pg-u8z"/>
                     </connections>
@@ -480,7 +487,7 @@
                                     <constraint firstAttribute="height" constant="70" id="Iha-aw-LB3"/>
                                     <constraint firstAttribute="width" constant="70" id="dUr-ag-z1d"/>
                                 </constraints>
-                                <state key="normal" image="walk"/>
+                                <state key="normal" image="location.fill" catalog="system"/>
                                 <connections>
                                     <action selector="goButtonTapped:" destination="qsM-H7-icO" eventType="touchUpInside" id="47Y-vU-Z4C"/>
                                 </connections>
@@ -576,16 +583,21 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZG-Dd-IT7">
-                                <rect key="frame" x="40" y="114" width="334" height="39.5"/>
+                                <rect key="frame" x="40" y="114" width="334" height="33"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="28"/>
                                 <color key="textColor" red="0.24313725489999999" green="0.44705882349999998" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="CGR-1R-mQs">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="GZG-Dd-IT7" firstAttribute="leading" secondItem="ZH8-ag-NWc" secondAttribute="leading" constant="40" id="Oca-vG-CNY"/>
                             <constraint firstItem="GZG-Dd-IT7" firstAttribute="top" secondItem="ZH8-ag-NWc" secondAttribute="top" constant="70" id="PY3-TE-vlJ"/>
+                            <constraint firstItem="CGR-1R-mQs" firstAttribute="centerX" secondItem="TqS-af-8N3" secondAttribute="centerX" id="V7M-r5-2jq"/>
+                            <constraint firstItem="CGR-1R-mQs" firstAttribute="centerY" secondItem="TqS-af-8N3" secondAttribute="centerY" id="Ybg-wa-gRq"/>
                             <constraint firstItem="xd1-gw-9je" firstAttribute="leading" secondItem="ZH8-ag-NWc" secondAttribute="leading" constant="40" id="dmj-DJ-lbS"/>
                             <constraint firstItem="ZH8-ag-NWc" firstAttribute="trailing" secondItem="xd1-gw-9je" secondAttribute="trailing" constant="40" id="kgw-Ji-u8V"/>
                             <constraint firstItem="ZH8-ag-NWc" firstAttribute="trailing" secondItem="GZG-Dd-IT7" secondAttribute="trailing" constant="40" id="rod-HD-CN9"/>
@@ -595,6 +607,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="t3Z-l9-gcj"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="CGR-1R-mQs" id="hml-Hq-m4a"/>
                         <outlet property="emailTextField" destination="nkh-0j-VMe" id="Ayi-fN-DnU"/>
                         <outlet property="errorLabel" destination="zLO-j0-kP3" id="HV9-Xs-dQZ"/>
                         <outlet property="firstNameTextField" destination="ULK-Y1-M7e" id="gxB-GQ-zsL"/>
@@ -626,9 +639,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Add" width="512" height="512"/>
         <image name="location" width="512" height="512"/>
+        <image name="location.fill" catalog="system" width="128" height="115"/>
         <image name="placeholder" width="80" height="60"/>
-        <image name="walk" width="1400" height="1400"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>

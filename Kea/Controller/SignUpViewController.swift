@@ -22,6 +22,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Variables
     
@@ -39,12 +40,13 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setUpElements()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         refresh()
     }
     
@@ -56,6 +58,7 @@ class SignUpViewController: UIViewController {
         
         // Hide Error Label 
         errorLabel.alpha = 0
+        activityIndicator.alpha = 0
         
         // Style UI Elements
         Utilities.styleTextField(firstNameTextField)
@@ -87,6 +90,9 @@ class SignUpViewController: UIViewController {
  
 
     @IBAction func signUpTapped(_ sender: Any) {
+        
+        activityIndicator.alpha = 1
+        activityIndicator.startAnimating()
         
         // Validate the fields
         let error = validateFields()

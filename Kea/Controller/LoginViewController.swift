@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var userId: String!
     
@@ -40,6 +41,7 @@ class LoginViewController: UIViewController {
         
         // Hide Error Label
         errorLabel.alpha = 0
+        activityIndicator.alpha = 0
         
         // Style UI Elements
         Utilities.styleTextField(emailTextField)
@@ -59,6 +61,8 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginTapped(_ sender: Any) {
         
+        self.activityIndicator.alpha = 1
+        self.activityIndicator.startAnimating()
         // Validate Text fields
         let error = validateFields()
         

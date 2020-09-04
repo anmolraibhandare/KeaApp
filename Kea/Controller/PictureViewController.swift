@@ -12,7 +12,7 @@ class PictureViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pickerView: UIPickerView!
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var breeds: [String] = []
     var dogImage : UIImage!
     var user: User!
@@ -42,6 +42,8 @@ class PictureViewController: UIViewController {
         DispatchQueue.main.async {
             self.imageView.image = image
             self.dogImage = image
+            self.activityIndicator.alpha = 0
+            self.activityIndicator.stopAnimating()
         }
     }
     
@@ -72,6 +74,9 @@ extension PictureViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    
+        self.activityIndicator.alpha = 1
+        self.activityIndicator.startAnimating()
         DogAPI.requestRandomImage(breed: breeds[row], completionHandler: handleRandomImageResponse(imageData:error:))
     }
     
