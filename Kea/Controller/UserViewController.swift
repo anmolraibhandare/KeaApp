@@ -16,10 +16,13 @@ import FirebaseFirestore
 
 class UserViewController: UIViewController {
 
-
+    // MARK: IBOutlets
+    
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
+    
+    // MARK: Varibales
     
     let locationManager = CLLocationManager()
     let regionInMeter: Double = 10000
@@ -35,26 +38,26 @@ class UserViewController: UIViewController {
     private var filtered = User()
     private var isFiltered = false
     private var selected:IndexPath!
-    private var picker = UIImagePickerController()
-    private var queryFirstName = ""
-    private var queryLastName = ""
     var query: String!
 
     private var usersCollectionRef: CollectionReference!
 
+    // MARK: LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addressLabel.text = "Location"
         usersCollectionRef = Firestore.firestore().collection("users")
-        picker.delegate = self
         checkLocationServices()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
         
+        // Setting the query as User's login ID
         self.query = self.userIDfromlogin
         
+        // Fetching User's information from Firebase
         usersCollectionRef.getDocuments { (snapshot, error) in
             if let error = error {
                 debugPrint("Error fetching docs: \(error)")
@@ -68,7 +71,8 @@ class UserViewController: UIViewController {
                     let lastname = data["lastname"] as? String ?? "Anonymous"
                     let userID = data["uid"] as? String ?? ""
                     print("first name \(firstname), lastname \(lastname)")
-
+                    
+                    // When UserID from Firebase matches UserID, add User's information to CoreData
                     if userID == self.userIDfromlogin {
                         self.userData = UserData(firstname: firstname, lastname: lastname, uid: self.userIDfromlogin)
                         print("User Data First Name:  \(self.userData.firstname ) Last Name: \(self.userData.lastname )")
@@ -76,11 +80,6 @@ class UserViewController: UIViewController {
                         user.firstname = self.userData.firstname
                         user.lastname = self.userData.lastname
                         user.userid = self.userData.userid
-                        self.queryFirstName = self.userData.firstname
-                        self.queryLastName = self.userData.lastname
-                        print("NSObject First Name:  \(user.firstname ?? "f not found") Last Name: \(user.lastname ?? "l not found")")
-                        print("Queryyy   \(self.queryFirstName) \(self.queryLastName)")
-    
                     }
                 }
             }
@@ -94,40 +93,47 @@ class UserViewController: UIViewController {
             // Dispose of any resources that can be recreated.
     }
     
+    // MARK: Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "HomeVC" {
             if let index = sender as? IndexPath {
                 let pvc = segue.destination as! HomeViewController
                 let user = fetchResultController.object(at: index)
+                // Send Users information and query to return
                 pvc.user = user
-                pvc.queryForBack = self.query
+                pvc.queryUser = self.userIDfromlogin
             }
         }
     }
     
-        private func showEditButton() {
-            guard let objs = fetchResultController.fetchedObjects else {
-                return
-            }
-            if objs.count > 0 {
-                navigationItem.leftBarButtonItem = editButtonItem
-            }
+    private func showEditButton() {
+        guard let objs = fetchResultController.fetchedObjects else {
+            return
         }
+        if objs.count > 0 {
+            navigationItem.leftBarButtonItem = editButtonItem
+        }
+    }
+    
+    // Refresh from Core Data
         
-        private func refresh(){
-            let request = User.fetchRequest() as NSFetchRequest<User>
-            if !query.isEmpty {
-                request.predicate = NSPredicate(format: "userid == %@", query)
-            }
-            let sort = NSSortDescriptor(key: #keyPath(User.userid), ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
-            request.sortDescriptors = [sort]
-            do {
-                fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-                try fetchResultController.performFetch()
-            } catch let error as NSError {
-                print("Could not fetch \(error), \(error.userInfo)")
-            }
+    private func refresh(){
+        let request = User.fetchRequest() as NSFetchRequest<User>
+        if !query.isEmpty {
+            request.predicate = NSPredicate(format: "userid == %@", query)
         }
+        let sort = NSSortDescriptor(key: #keyPath(User.userid), ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
+        request.sortDescriptors = [sort]
+        do {
+            fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            try fetchResultController.performFetch()
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+    }
+    
+    // Setting up Location Manager
     
     func setupLocationManager() {
         locationManager.delegate = self
@@ -152,9 +158,7 @@ class UserViewController: UIViewController {
             checkLocationAuthoriztion()
             
         } else {
-            
             // Show alert to let users know that the location services needs to be turned on
-            
         }
     }
     
@@ -164,7 +168,6 @@ class UserViewController: UIViewController {
         case .authorizedWhenInUse:
             // Locate the user's map locations
             startTrackingUserLocation()
-            
         case .denied:
             // Show alert instructing users how to turn on permissions
             break
@@ -251,15 +254,15 @@ class UserViewController: UIViewController {
         }
     }
     
+    // MARK: Go button tapped
+    
     @IBAction func goButtonTapped(_ sender: UIButton) {
         // Get directions
         getDirections()
     }
-    
-    
 }
 
-// Table View Delegates
+// MARK: Table View Delegates
 extension UserViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -279,50 +282,11 @@ extension UserViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if isEditing {
-            selected = indexPath
-            self.navigationController?.present(picker, animated: true, completion: nil)
-        } else {
             performSegue(withIdentifier: "HomeVC", sender: indexPath)
-        }
     }
 }
-    // Image Picker Delegates
-    extension UserViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    // Local variable inserted by Swift 4.2 migrator.
-    let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
-
-            let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as! UIImage
-            let user = fetchResultController.object(at: selected)
-            appDelegate.saveContext()
-            tableView?.reloadRows(at: [selected], with: UITableView.RowAnimation.automatic)
-            picker.dismiss(animated: true, completion: nil)
-        }
-    }
-
-
-
-    // Helper function inserted by Swift 4.2 migrator.
-    fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
-        return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
-    }
-
-    // Helper function inserted by Swift 4.2 migrator.
-    fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
-        return input.rawValue
-    }
-
 
 extension UserViewController: CLLocationManagerDelegate {
-//
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        guard let location = locations.last else { return }
-//        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-//        let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeter, longitudinalMeters: regionInMeter)
-//        mapView.setRegion(region, animated: true)
-//    }
-    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         checkLocationAuthoriztion()
     }
@@ -368,13 +332,11 @@ extension UserViewController: MKMapViewDelegate {
         }
     }
     
-    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let render = MKPolylineRenderer(overlay: overlay as! MKPolyline)
         render.strokeColor = .blue
         
         return render
     }
-    
     
 }

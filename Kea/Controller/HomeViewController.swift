@@ -13,15 +13,18 @@ import FirebaseFirestore
 
 class HomeViewController: UIViewController {
 
+    // MARK: IBOutlets
+    
     @IBOutlet weak var tableView: UITableView!
     
-    var user: User!
+    // MARK: Variables
     
+    var user: User!
     var emailFromLogin: String!
     var passwordFromLogin: String!
     var userData: UserData!
     var dogImageFromUser: UIImage!
-    var queryForBack: String!
+    var queryUser: String!
     
     private var fetchResultController: NSFetchedResultsController<Pet>!
     private var query = ""
@@ -37,11 +40,13 @@ class HomeViewController: UIViewController {
     private var selected:IndexPath!
     private var picker = UIImagePickerController()
     
+    
+    // MARK: LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
         formatter.dateFormat = "d MM yyy"
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +54,7 @@ class HomeViewController: UIViewController {
         refresh()
     }
     
+    // Refresh Core data
     private func refresh() {
         
         let request = Pet.fetchRequest() as NSFetchRequest<Pet>
@@ -86,10 +92,11 @@ class HomeViewController: UIViewController {
         appDelegate.saveContext()
     }
 
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    // MARK: LongPress a table row
     
     @IBAction func longPress(gestureRecognizer: UIGestureRecognizer) {
         if gestureRecognizer.state != .ended {
@@ -104,21 +111,29 @@ class HomeViewController: UIViewController {
         }
     }
     
+    // MARK: Add pet button tapped
+    
     @IBAction func addPet(_ sender: Any) {
         // Transition to next screen
         let pictureViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.pictureViewController) as? PictureViewController
         pictureViewController?.user = self.user
+        pictureViewController?.query = self.queryUser
         self.view.window?.rootViewController = pictureViewController
         self.view.window?.makeKeyAndVisible()
     }
+    
+    // MARK: Back button tapped
+    
     @IBAction func backButton(_ sender: Any) {
         // Transition to user screen
         let userViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.userViewController) as? UserViewController
-        userViewController!.query = self.queryForBack
+        userViewController?.userIDfromlogin = self.queryUser
         self.view.window?.rootViewController = userViewController
         self.view.window?.makeKeyAndVisible()
     }
 }
+
+// MARK: Table View Delegate
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -136,7 +151,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if let dob = pet.dob as Date? {
             cell.dobLabel.text = formatter.string(from: dob)
         } else {
-            cell.dobLabel.text = "Unknown"
+            cell.dobLabel.text = "Feb 2, 2019"
         }
         if let data = pet.picture as Data? {
             cell.pictureImageView.image = UIImage(data: data)

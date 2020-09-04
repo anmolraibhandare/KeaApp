@@ -21,18 +21,17 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    // MARK: Variables
+    
     var userId: String!
-    
-    private var usersCollectionRef: CollectionReference!
-    
     var userData: UserData!
     var user: User!
+    private var usersCollectionRef: CollectionReference!
     
     // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpElements()
         usersCollectionRef = Firestore.firestore().collection("users")
     }
@@ -58,11 +57,14 @@ class LoginViewController: UIViewController {
         }
         return nil
     }
+    
+    // MARK: Login button Tapped
 
     @IBAction func loginTapped(_ sender: Any) {
         
         self.activityIndicator.alpha = 1
         self.activityIndicator.startAnimating()
+        
         // Validate Text fields
         let error = validateFields()
         
@@ -81,7 +83,6 @@ class LoginViewController: UIViewController {
                // Check for error
                 if error != nil {
                     self.errorLabel.text = error!.localizedDescription
-//                    self.showError("Error logining in")
                 } else {
                     // User signed in successfully
                     self.userId = result!.user.uid
@@ -95,7 +96,8 @@ class LoginViewController: UIViewController {
             }
         }
     }
-
+    
+    // Display Error
     func showError(_ message: String) {
         errorLabel.text = message
         errorLabel.alpha = 1

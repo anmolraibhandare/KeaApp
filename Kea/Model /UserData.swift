@@ -19,4 +19,5 @@ class UserData {
         self.lastname = lastname
         self.userid = uid
     }
+    
 }

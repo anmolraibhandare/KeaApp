@@ -15,8 +15,8 @@ class PetData {
     var picture: UIImage?
     var dob = Date()
     
-    private let names = ["Eddie", "Kimchi", "Meetkit", "Handel", "Kinginthenorth", "Rockzilla", "Kuro" ]
-    private let kinds = ["Dog", "Cat"]
+    private let names = ["Eddie", "Akira", "Kiko", "Kimi", "Chika", "Chiyo", "Yuina", "Chieko", "Yuka", "Kuro" ]
+    private let kinds = ["Dog"]
     
     init() {
         var index = Int(arc4random_uniform(UInt32(names.count)))

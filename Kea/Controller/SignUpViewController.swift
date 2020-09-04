@@ -40,13 +40,11 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpElements()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         refresh()
     }
     
@@ -87,7 +85,8 @@ class SignUpViewController: UIViewController {
         }
         return nil
     }
- 
+    
+    // MARK: Sign Up button tapped
 
     @IBAction func signUpTapped(_ sender: Any) {
         
@@ -120,10 +119,10 @@ class SignUpViewController: UIViewController {
                         
                         if error != nil {
                             self.errorLabel.text = error!.localizedDescription
-//                            self.showError("Error saving user data")
                         }
 
                     }
+                    // Adding users information into core data
                     let data = UserData(firstname: firstName, lastname: lastName, uid: result!.user.uid)
                     let user = User(entity: User.entity(), insertInto: self.context)
                     user.firstname = data.firstname
@@ -143,13 +142,11 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    // Display Error
     func showError(_ message: String) {
         errorLabel.text = message
         errorLabel.alpha = 1
     }
-    
-    // MARK:- Navigation
-
     
     private func refresh() {
         let request = User.fetchRequest() as NSFetchRequest<User>
@@ -165,5 +162,4 @@ class SignUpViewController: UIViewController {
             print("Could not Fetch data. \(error), \(error.userInfo)")
         }
     }
-
 }

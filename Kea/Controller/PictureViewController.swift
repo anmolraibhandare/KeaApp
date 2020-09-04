@@ -10,13 +10,20 @@ import UIKit
 
 class PictureViewController: UIViewController {
 
+    // MARK: IBOutlets
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    //MARK: Variables
+    
     var breeds: [String] = []
     var dogImage : UIImage!
     var user: User!
+    var query: String!
     
+    // MARK: LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,18 +55,21 @@ class PictureViewController: UIViewController {
         }
     }
     
+    // MARK: Add Pet Button Tapped
+    
     @IBAction func addPetButton(_ sender: Any) {
         // Transition to HomeViewController with Pet
         let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
         homeViewController?.dogImageFromUser = self.dogImage
         homeViewController?.user = self.user
+        homeViewController?.queryUser = self.query
         self.view.window?.rootViewController = homeViewController
         self.view.window?.makeKeyAndVisible()
-        
-        
+
     }
 }
-        
+
+// MARK: Picker View Delegates
 extension PictureViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
