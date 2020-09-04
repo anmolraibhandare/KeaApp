@@ -21,6 +21,7 @@
 		260A351424FEBEAF00008183 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 260A351324FEBEAF00008183 /* GoogleService-Info.plist */; };
 		260A351624FEC48700008183 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A351524FEC48700008183 /* Constants.swift */; };
 		260A351924FEDDB000008183 /* viewControllerVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 260A351824FEDDB000008183 /* viewControllerVideo.mp4 */; };
+		26D529592502180000A670B1 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D529582502180000A670B1 /* Alert.swift */; };
 		26FF227C24FEEE160027FC4B /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26FF227324FEEE150027FC4B /* Poppins-ExtraLight.ttf */; };
 		26FF227D24FEEE160027FC4B /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26FF227424FEEE150027FC4B /* Poppins-Thin.ttf */; };
 		26FF227E24FEEE160027FC4B /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26FF227524FEEE150027FC4B /* Poppins-Bold.ttf */; };
@@ -64,6 +65,7 @@
 		260A351324FEBEAF00008183 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		260A351524FEC48700008183 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		260A351824FEDDB000008183 /* viewControllerVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = viewControllerVideo.mp4; sourceTree = "<group>"; };
+		26D529582502180000A670B1 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		26FF227324FEEE150027FC4B /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		26FF227424FEEE150027FC4B /* Poppins-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Thin.ttf"; sourceTree = "<group>"; };
 		26FF227524FEEE150027FC4B /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			children = (
 				260A350F24FDE7D200008183 /* Utilities.swift */,
 				260A351524FEC48700008183 /* Constants.swift */,
+				26D529582502180000A670B1 /* Alert.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				260A350A24FDDCD500008183 /* LoginViewController.swift in Sources */,
 				26FF23022501CBB80027FC4B /* PictureViewController.swift in Sources */,
 				26FF229924FEF9F70027FC4B /* PetCell.swift in Sources */,
+				26D529592502180000A670B1 /* Alert.swift in Sources */,
 				26FF22B524FF678F0027FC4B /* User+CoreDataProperties.swift in Sources */,
 				26FF229D24FF263A0027FC4B /* UserViewController.swift in Sources */,
 				260A34F124FDDB4500008183 /* ViewController.swift in Sources */,

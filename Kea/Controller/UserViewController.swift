@@ -133,6 +133,15 @@ class UserViewController: UIViewController {
         }
     }
     
+    // Present Alert
+    
+    func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+        
+    }
+    
     // Setting up Location Manager
     
     func setupLocationManager() {
@@ -170,12 +179,14 @@ class UserViewController: UIViewController {
             startTrackingUserLocation()
         case .denied:
             // Show alert instructing users how to turn on permissions
+            self.presentAlert(title: "Location Error", message: "Permissions on this iphone are not turned on")
             break
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
             break
         case .restricted:
             // Show an alert letting them know what's up
+            self.presentAlert(title: "Location Error", message: "Permission to use map is retricted")
             break
         case .authorizedAlways:
             break
@@ -211,6 +222,7 @@ class UserViewController: UIViewController {
             // Handle error
             guard let response = response else {
                 // Show alert
+                self.presentAlert(title: "Location Error", message: "")
                 return
             }
             
@@ -315,11 +327,13 @@ extension UserViewController: MKMapViewDelegate {
             
             if let _ = error {
                 // Show alert
+                self.presentAlert(title: "Location Error", message: "")
                 return
             }
             
             guard let placemark = placemarkers?.first else {
                 // Show alert
+                self.presentAlert(title: "PlaceMark Error", message: "Cannot place marks on the map")
                 return
             }
             
