@@ -26,19 +26,19 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpElements()
+//        setUpElements()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setUpVideo()
     }
         
-    func setUpElements() {
-        
-        // Style UI Elements
-        Utilities.styleFilledButton(signUpButton)
-        Utilities.styleHollowButton(loginButton)
-    }
+//    func setUpElements() {
+//
+//        // Style UI Elements
+//        Utilities.styleFilledButton(signUpButton)
+//        Utilities.styleHollowButton(loginButton)
+//    }
     
     func setUpVideo() {
         
