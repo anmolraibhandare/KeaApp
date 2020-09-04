@@ -15,9 +15,13 @@ Clone the app to your local machine
 KeaApp is built using Swift and Firebase. Dependencies are managed using CocoaPods.
 
 1. Setup Firebase for the app to get `GoogleService-info.plist` file. Link to setup firebase can be found [here](https://firebase.google.com/docs/ios/setup)
-2. Run `pod install` in the Source directory, open `.xcworkspace` file, build and run the project.
+2. Run `pod install` in the Source directory, open `.xcworkspace` file and build the project
 3. Create a new database named `users` within your firebase account. Add a new Cloud Firestore collection `users` with firstname, lastname, uid, email and password
-4. Your Firebase should now be linked with Kea
+4. Your Firebase should now be linked with Kea, now run the project
+5. The application should prompt to activate location services. Make sure to `Allow location services`. If not active, go to Settings -> Privacy -> Location Services -> Turn on or enable `While using the App`
+
+  > **_NOTE:_** - *Please make sure to setup Firebase and to activate location services for the Application to run as intended.*\
+  *To check persistence, you can close the app within the simulator by holding `Command ⌘` + `Shift` + Double tap'H'*
 
 ### User Flow
 1. Sign Up -> Pin and view walking paths -> Add Pet 
@@ -27,7 +31,7 @@ KeaApp is built using Swift and Firebase. Dependencies are managed using CocoaPo
 ### Authentication
 #### Sign Up
 1. Click on a "Sign Up" button
-2. Provide first and last name, email and password (password shuld contain at least 8 characters, including letters, numbers and special characters)
+2. Provide first and last name, email and password (password should contain at least 8 characters, including letters, numbers and special characters)
 3. Click on a "Sign Up" button below
 
 #### Login
