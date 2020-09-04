@@ -8,7 +8,7 @@ Pet Dog walking iOS app that allows the users to: Sign in to the app, Search for
 - Xcode 11.4
 - Swift 5
 
-### ScreenCast
+![](kea.gif)
 
 ### Setup
 Clone the app to your local machine
