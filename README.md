@@ -1,8 +1,13 @@
 # KeaApp
-Pet Dog walking iOS app that allows the users to: Sign in to the app, Search for Breed and add random pet image and Pin a location to get all the path from current locations.
+Pet tracking OS app that allows the users to: Sign in to the app, search for a dog breed and add random pet image, pin a location to get all the path from current locations.
 
 ##### Overview
-`AVKit` is used to place the video image on the main view controller. The app uses `Firebase` to Sign in and Sign up to the app. The user data is then persisted in local memory using `core data`. `MapView` is used to display paths for walking. `DogAPI` is used to search for random dog images and save them in the memory. 
+Features used in the application:\
+`AVKit` - to place the video image on the main view controller\
+`Firebase` - to Sign in and Sign up to the app\
+`Core Data` - to persist user data in local memory using\
+`MapView` - to display paths for walking\
+`DogAPI` - to search for random dog images and save them in the memory
 
 ### Requirements
 - Xcode 11.4
@@ -20,8 +25,8 @@ KeaApp is built using Swift and Firebase. Dependencies are managed using CocoaPo
 4. Your Firebase should now be linked with Kea, now run the project
 5. The application should prompt to activate location services. Make sure to `Allow location services`. If not active, go to Settings -> Privacy -> Location Services -> Turn on or enable `While using the App`
 
-  > **_NOTE:_** - *Please make sure to setup Firebase and to activate location services for the Application to run as intended.*\
-  *To check persistence, you can close the app within the simulator by holding `Command ⌘` + `Shift` + Double tap'H'*
+  > **_NOTE:_** - *Please make sure to setup Firebase and to activate location services to run the application as intended.*\
+  *To check persistence, you can close the app within the simulator by holding `Command ⌘` + `Shift` + Double tapping 'H'*
 
 ### User Flow
 1. Sign Up -> Pin and view walking paths -> Add Pet 
