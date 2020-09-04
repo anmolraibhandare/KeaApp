@@ -1,15 +1,46 @@
 # KeaApp
-Pet tracking iOS app that allows the users to sign in to the app, add pet and view pet information.
+Pet Dog walking iOS app that allows the users to: Sign in to the app, Search for Breed and add random pet image and Pin a location to get all the path from current locations.
 
-#### Requirements
+##### Overview
+`AVKit` is used to place the video image on the main view controller. The app uses `Firebase` to Sign in and Sign up to the app. The user data is then persisted in local memory using `core data`. `MapView` is used to display paths for walking. `DogAPI` is used to search for random dog images and save them in the memory. 
+
+### Requirements
 - Xcode 11.4
 - Swift 5
 
+### Setup
+Clone the app to your local machine
+KeaApp is built using Swift and Firebase. Dependencies are managed using CocoaPods.
+Run `pod install` in the Source directory, open `.xcworkspace` file, build and run the project.
 
-#### User Flow
+### User Flow
+1. Sign Up -> Pin and view walking paths -> Add Pet 
+2. Crash the app to see if the data is persisted
+2. Log in with same email id and password
 
+### Authentication
+#### Sign Up
+1. Click on a "Sign Up" button
+2. Provide first and last name, email and password (password shuld contain at least 8 characters, including letters, numbers and special characters)
+3. Click on a "Sign Up" button below
 
-#### UX Study
+#### Login
+1. Click on a "Login" button
+2. Provide email and password used to sign up before.
+3. Click on a "Login" button below.
+
+### View Paths
+1. Move the pin (center) to place the location on the map where you need to take your pet for a walk
+2. Click on the "Walk" button located at the buttom right corner
+3. This show different paths you can take with walking the dog
+
+### View and Add Pets
+1. Click on your name at the bottom of the screen
+2. You could see your pet list, click the "Plus" button at buttom right to add a new pet
+3. Select the breed of your dog from the picker view for random dog images of the breed
+4. Click "Add pet" once you are done with the selection
+
+### UX Study
 This app is inspired by my User Experience Nanodegree Final project (Kea - Pet Tracking Application). 
 
 - [Github Link](https://github.com/anmolraibhandare/Kea)
@@ -17,7 +48,7 @@ This app is inspired by my User Experience Nanodegree Final project (Kea - Pet T
 - [Prototype Link](https://www.figma.com/proto/fn7K4NfOouOafKMWGQig96/Kea?node-id=291%3A755&scaling=scale-down)
 - [Project Link](https://www.figma.com/file/fn7K4NfOouOafKMWGQig96/Kea?node-id=291%3A0)
 
-#### Technologies Used In Application:
+### Technologies Used In Application:
 - AVKit
 - Stack Views
 - Auto Layout
@@ -26,13 +57,6 @@ This app is inspired by my User Experience Nanodegree Final project (Kea - Pet T
 - Networking
 - Table View
 - Navigation & Tab Controllers
-
-#### User Interface
-
-#### Networking
-
-#### Persistence
-
 
 
 
