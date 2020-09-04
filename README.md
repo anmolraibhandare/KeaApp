@@ -8,10 +8,16 @@ Pet Dog walking iOS app that allows the users to: Sign in to the app, Search for
 - Xcode 11.4
 - Swift 5
 
+![](kea.gif)
+
 ### Setup
 Clone the app to your local machine
 KeaApp is built using Swift and Firebase. Dependencies are managed using CocoaPods.
-Run `pod install` in the Source directory, open `.xcworkspace` file, build and run the project.
+
+1. Setup Firebase for the app to get `GoogleService-info.plist` file. Link to setup firebase can be found [here](https://firebase.google.com/docs/ios/setup)
+2. Run `pod install` in the Source directory, open `.xcworkspace` file, build and run the project.
+3. Create a new database named `users` within your firebase account. Add a new Cloud Firestore collection `users` with firstname, lastname, uid, email and password
+4. Your Firebase should now be linked with Kea
 
 ### User Flow
 1. Sign Up -> Pin and view walking paths -> Add Pet 
