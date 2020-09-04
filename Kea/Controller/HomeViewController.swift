@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
     var passwordFromLogin: String!
     var userData: UserData!
     var dogImageFromUser: UIImage!
+    var queryForBack: String!
     
     private var fetchResultController: NSFetchedResultsController<Pet>!
     private var query = ""
@@ -108,6 +109,13 @@ class HomeViewController: UIViewController {
         let pictureViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.pictureViewController) as? PictureViewController
         pictureViewController?.user = self.user
         self.view.window?.rootViewController = pictureViewController
+        self.view.window?.makeKeyAndVisible()
+    }
+    @IBAction func backButton(_ sender: Any) {
+        // Transition to user screen
+        let userViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.userViewController) as? UserViewController
+        userViewController!.query = self.queryForBack
+        self.view.window?.rootViewController = userViewController
         self.view.window?.makeKeyAndVisible()
     }
 }

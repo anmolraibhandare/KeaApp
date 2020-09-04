@@ -20,6 +20,7 @@ class PictureViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.alpha = 0
         DogAPI.requestBreedsList(completionHandler: handleBreedsListResponse(breeds:error:))
     }
 
@@ -57,7 +58,6 @@ class PictureViewController: UIViewController {
         
         
     }
-    
 }
         
 extension PictureViewController: UIPickerViewDataSource, UIPickerViewDelegate {

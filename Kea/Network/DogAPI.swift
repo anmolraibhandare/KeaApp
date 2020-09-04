@@ -11,6 +11,8 @@ import UIKit
 
 class DogAPI{
         enum Endpoint{
+            
+            // Endp
             case randomImageFromAllDogsCollection
             case randomImageForBreed (String)
             case listAllBreeds

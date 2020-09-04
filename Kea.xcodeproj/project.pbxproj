@@ -125,11 +125,11 @@
 		260A34EB24FDDB4500008183 /* Kea */ = {
 			isa = PBXGroup;
 			children = (
-				26FF22FA2501CB1F0027FC4B /* Network */,
 				260A34EC24FDDB4500008183 /* AppDelegate.swift */,
 				260A34EE24FDDB4500008183 /* SceneDelegate.swift */,
 				260A34FD24FDDB4800008183 /* Info.plist */,
 				260A351324FEBEAF00008183 /* GoogleService-Info.plist */,
+				26FF22FA2501CB1F0027FC4B /* Network */,
 				26FF227224FEEDD70027FC4B /* Fonts */,
 				260A350E24FDE7B000008183 /* Helpers */,
 				26FF229524FEF9CA0027FC4B /* Cells */,

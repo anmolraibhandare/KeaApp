@@ -38,12 +38,13 @@ class UserViewController: UIViewController {
     private var picker = UIImagePickerController()
     private var queryFirstName = ""
     private var queryLastName = ""
-    private var query = ""
+    var query: String!
 
     private var usersCollectionRef: CollectionReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addressLabel.text = "Location"
         usersCollectionRef = Firestore.firestore().collection("users")
         picker.delegate = self
         checkLocationServices()
@@ -99,6 +100,7 @@ class UserViewController: UIViewController {
                 let pvc = segue.destination as! HomeViewController
                 let user = fetchResultController.object(at: index)
                 pvc.user = user
+                pvc.queryForBack = self.query
             }
         }
     }

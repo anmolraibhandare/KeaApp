@@ -93,7 +93,6 @@ class SignUpViewController: UIViewController {
         
         activityIndicator.alpha = 1
         activityIndicator.startAnimating()
-        
         // Validate the fields
         let error = validateFields()
         

@@ -99,11 +99,11 @@
             <objects>
                 <viewController id="xoS-g1-asj" customClass="LoginViewController" customModule="Kea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HJb-0R-elU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Otw-MJ-gTe">
-                                <rect key="frame" x="40" y="562" width="334" height="260"/>
+                                <rect key="frame" x="40" y="508" width="334" height="260"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="im2-Up-qsr">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -142,22 +142,36 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJO-bE-05x">
-                                <rect key="frame" x="40" y="114" width="334" height="39.5"/>
+                                <rect key="frame" x="40" y="70" width="334" height="39.5"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="28"/>
                                 <color key="textColor" red="0.24313725489999999" green="0.44705882349999998" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="8OO-29-K0O">
-                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <rect key="frame" x="197" y="411" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbf-Fj-g6D">
+                                <rect key="frame" x="0.0" y="768" width="414" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Gy1-6K-2L5"/>
+                                    <constraint firstAttribute="height" constant="40" id="xeO-PB-6zf"/>
+                                </constraints>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="pjv-aq-nyk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="SKY-8G-8Yw" firstAttribute="bottom" secondItem="Otw-MJ-gTe" secondAttribute="bottom" constant="40" id="0LV-HZ-mKJ"/>
+                            <constraint firstItem="Qbf-Fj-g6D" firstAttribute="bottom" secondItem="SKY-8G-8Yw" secondAttribute="bottom" id="23P-IG-n1d"/>
                             <constraint firstItem="8OO-29-K0O" firstAttribute="centerY" secondItem="HJb-0R-elU" secondAttribute="centerY" id="36z-kt-zwZ"/>
                             <constraint firstItem="SKY-8G-8Yw" firstAttribute="trailing" secondItem="OJO-bE-05x" secondAttribute="trailing" constant="40" id="ALT-fG-cdZ"/>
                             <constraint firstItem="8OO-29-K0O" firstAttribute="centerX" secondItem="HJb-0R-elU" secondAttribute="centerX" id="D0K-ft-y5z"/>
                             <constraint firstItem="SKY-8G-8Yw" firstAttribute="trailing" secondItem="Otw-MJ-gTe" secondAttribute="trailing" constant="40" id="FM1-V8-TYa"/>
+                            <constraint firstItem="Qbf-Fj-g6D" firstAttribute="leading" secondItem="SKY-8G-8Yw" secondAttribute="leading" id="KEg-JA-gLT"/>
+                            <constraint firstItem="Qbf-Fj-g6D" firstAttribute="trailing" secondItem="SKY-8G-8Yw" secondAttribute="trailing" id="PTH-4u-48v"/>
                             <constraint firstItem="OJO-bE-05x" firstAttribute="leading" secondItem="SKY-8G-8Yw" secondAttribute="leading" constant="40" id="Qok-7q-8P5"/>
                             <constraint firstItem="Otw-MJ-gTe" firstAttribute="leading" secondItem="SKY-8G-8Yw" secondAttribute="leading" constant="40" id="R9v-TH-oIw"/>
                             <constraint firstItem="OJO-bE-05x" firstAttribute="top" secondItem="SKY-8G-8Yw" secondAttribute="top" constant="70" id="pv3-3y-2pg"/>
@@ -188,7 +202,13 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NIX-Ke-pEb">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Pets" id="GAf-uz-r2g"/>
+                                    <navigationItem title="Pets" id="GAf-uz-r2g">
+                                        <barButtonItem key="leftBarButtonItem" image="arrow.left" catalog="system" id="ewR-7D-Gn5">
+                                            <connections>
+                                                <action selector="backButton:" destination="XBV-Sz-H2L" id="m96-Ei-ptA"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hfi-K9-Neg">
@@ -531,11 +551,11 @@
             <objects>
                 <viewController id="QRg-oe-eT3" customClass="SignUpViewController" customModule="Kea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TqS-af-8N3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xd1-gw-9je">
-                                <rect key="frame" x="40" y="422" width="334" height="400"/>
+                                <rect key="frame" x="40" y="368" width="334" height="400"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ULK-Y1-M7e">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -583,17 +603,29 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZG-Dd-IT7">
-                                <rect key="frame" x="40" y="114" width="334" height="33"/>
+                                <rect key="frame" x="40" y="70" width="334" height="39.5"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="28"/>
                                 <color key="textColor" red="0.24313725489999999" green="0.44705882349999998" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="CGR-1R-mQs">
-                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <rect key="frame" x="197" y="411" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBP-zC-z21">
+                                <rect key="frame" x="0.0" y="768" width="414" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="pCY-SJ-j8R"/>
+                                </constraints>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="Zzf-PT-B6L"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="kBP-zC-z21" firstAttribute="bottom" secondItem="ZH8-ag-NWc" secondAttribute="bottom" id="5xf-w1-hyR"/>
+                            <constraint firstItem="kBP-zC-z21" firstAttribute="trailing" secondItem="ZH8-ag-NWc" secondAttribute="trailing" id="J2T-mG-NJC"/>
                             <constraint firstItem="GZG-Dd-IT7" firstAttribute="leading" secondItem="ZH8-ag-NWc" secondAttribute="leading" constant="40" id="Oca-vG-CNY"/>
                             <constraint firstItem="GZG-Dd-IT7" firstAttribute="top" secondItem="ZH8-ag-NWc" secondAttribute="top" constant="70" id="PY3-TE-vlJ"/>
                             <constraint firstItem="CGR-1R-mQs" firstAttribute="centerX" secondItem="TqS-af-8N3" secondAttribute="centerX" id="V7M-r5-2jq"/>
@@ -602,6 +634,7 @@
                             <constraint firstItem="ZH8-ag-NWc" firstAttribute="trailing" secondItem="xd1-gw-9je" secondAttribute="trailing" constant="40" id="kgw-Ji-u8V"/>
                             <constraint firstItem="ZH8-ag-NWc" firstAttribute="trailing" secondItem="GZG-Dd-IT7" secondAttribute="trailing" constant="40" id="rod-HD-CN9"/>
                             <constraint firstItem="ZH8-ag-NWc" firstAttribute="bottom" secondItem="xd1-gw-9je" secondAttribute="bottom" constant="40" id="xn2-Cp-qO1"/>
+                            <constraint firstItem="kBP-zC-z21" firstAttribute="leading" secondItem="ZH8-ag-NWc" secondAttribute="leading" id="yL2-gE-A2D"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZH8-ag-NWc"/>
                     </view>
@@ -638,7 +671,11 @@
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="pjv-aq-nyk"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="location" width="512" height="512"/>
         <image name="location.fill" catalog="system" width="128" height="115"/>
         <image name="placeholder" width="80" height="60"/>
