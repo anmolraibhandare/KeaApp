@@ -40,6 +40,10 @@
 		26FF22B624FF678F0027FC4B /* Pet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF22B224FF678F0027FC4B /* Pet+CoreDataClass.swift */; };
 		26FF22B724FF678F0027FC4B /* Pet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF22B324FF678F0027FC4B /* Pet+CoreDataProperties.swift */; };
 		26FF22BE25004A6C0027FC4B /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 26FF22BD25004A6C0027FC4B /* SDWebImageSwiftUI */; };
+		26FF22FC2501CB320027FC4B /* DogAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF22FB2501CB320027FC4B /* DogAPI.swift */; };
+		26FF22FE2501CB440027FC4B /* DogImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF22FD2501CB440027FC4B /* DogImage.swift */; };
+		26FF23002501CB5A0027FC4B /* BreedsListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF22FF2501CB5A0027FC4B /* BreedsListResponse.swift */; };
+		26FF23022501CBB80027FC4B /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF23012501CBB80027FC4B /* PictureViewController.swift */; };
 		4AFB71F24B8382BBD12E2E1D /* Pods_Kea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396F75C791CF2A2D703BF278 /* Pods_Kea.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +82,10 @@
 		26FF22B124FF678F0027FC4B /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		26FF22B224FF678F0027FC4B /* Pet+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pet+CoreDataClass.swift"; sourceTree = "<group>"; };
 		26FF22B324FF678F0027FC4B /* Pet+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pet+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		26FF22FB2501CB320027FC4B /* DogAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogAPI.swift; sourceTree = "<group>"; };
+		26FF22FD2501CB440027FC4B /* DogImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImage.swift; sourceTree = "<group>"; };
+		26FF22FF2501CB5A0027FC4B /* BreedsListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsListResponse.swift; sourceTree = "<group>"; };
+		26FF23012501CBB80027FC4B /* PictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
 		396F75C791CF2A2D703BF278 /* Pods_Kea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF69B875F3AD6B0EEF8DBF4 /* Pods-Kea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kea.debug.xcconfig"; path = "Target Support Files/Pods-Kea/Pods-Kea.debug.xcconfig"; sourceTree = "<group>"; };
 		A177F47D209843B34F9A4BD4 /* Pods-Kea.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kea.release.xcconfig"; path = "Target Support Files/Pods-Kea/Pods-Kea.release.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +125,7 @@
 		260A34EB24FDDB4500008183 /* Kea */ = {
 			isa = PBXGroup;
 			children = (
+				26FF22FA2501CB1F0027FC4B /* Network */,
 				260A34EC24FDDB4500008183 /* AppDelegate.swift */,
 				260A34EE24FDDB4500008183 /* SceneDelegate.swift */,
 				260A34FD24FDDB4800008183 /* Info.plist */,
@@ -128,7 +137,6 @@
 				260A350324FDDBDC00008183 /* Model  */,
 				260A350524FDDBFC00008183 /* Controller */,
 				260A350424FDDBF400008183 /* View */,
-				260A350624FDDC0400008183 /* Network */,
 			);
 			path = Kea;
 			sourceTree = "<group>";
@@ -165,15 +173,9 @@
 				260A350924FDDCD500008183 /* LoginViewController.swift */,
 				26FF229C24FF263A0027FC4B /* UserViewController.swift */,
 				260A350B24FDDCE800008183 /* HomeViewController.swift */,
+				26FF23012501CBB80027FC4B /* PictureViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		260A350624FDDC0400008183 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		260A350E24FDE7B000008183 /* Helpers */ = {
@@ -216,6 +218,16 @@
 				26FF229824FEF9F70027FC4B /* PetCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		26FF22FA2501CB1F0027FC4B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				26FF22FB2501CB320027FC4B /* DogAPI.swift */,
+				26FF22FD2501CB440027FC4B /* DogImage.swift */,
+				26FF22FF2501CB5A0027FC4B /* BreedsListResponse.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		98B7D2AC98A84F15B9FEF51E /* Pods */ = {
@@ -368,22 +380,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				260A350A24FDDCD500008183 /* LoginViewController.swift in Sources */,
+				26FF23022501CBB80027FC4B /* PictureViewController.swift in Sources */,
 				26FF229924FEF9F70027FC4B /* PetCell.swift in Sources */,
 				26FF22B524FF678F0027FC4B /* User+CoreDataProperties.swift in Sources */,
 				26FF229D24FF263A0027FC4B /* UserViewController.swift in Sources */,
 				260A34F124FDDB4500008183 /* ViewController.swift in Sources */,
 				260A34F724FDDB4500008183 /* Kea.xcdatamodeld in Sources */,
+				26FF22FE2501CB440027FC4B /* DogImage.swift in Sources */,
 				26FF229724FEF9EC0027FC4B /* UserCell.swift in Sources */,
 				260A34ED24FDDB4500008183 /* AppDelegate.swift in Sources */,
 				260A34EF24FDDB4500008183 /* SceneDelegate.swift in Sources */,
 				260A350C24FDDCE800008183 /* HomeViewController.swift in Sources */,
 				26FF229F24FF2B600027FC4B /* UserData.swift in Sources */,
+				26FF23002501CB5A0027FC4B /* BreedsListResponse.swift in Sources */,
 				26FF22B624FF678F0027FC4B /* Pet+CoreDataClass.swift in Sources */,
 				26FF229B24FF14370027FC4B /* PetData.swift in Sources */,
 				260A351024FDE7D200008183 /* Utilities.swift in Sources */,
 				260A350824FDDCC700008183 /* SignUpViewController.swift in Sources */,
 				260A351624FEC48700008183 /* Constants.swift in Sources */,
 				26FF22B424FF678F0027FC4B /* User+CoreDataClass.swift in Sources */,
+				26FF22FC2501CB320027FC4B /* DogAPI.swift in Sources */,
 				26FF22B724FF678F0027FC4B /* Pet+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
