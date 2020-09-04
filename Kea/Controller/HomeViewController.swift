@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
     var emailFromLogin: String!
     var passwordFromLogin: String!
     var userData: UserData!
+    var dogImageFromUser: UIImage!
     
     private var fetchResultController: NSFetchedResultsController<Pet>!
     private var query = ""
@@ -84,13 +85,18 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func addPet(_ sender: Any) {
-        let data = PetData()
-        let pet = Pet(entity: Pet.entity(), insertInto: context)
-        pet.name = data.name
-        pet.kind = data.kind
-//        pet.dob = data.dob
-        pet.owner = user
-        appDelegate.saveContext()
+//        let data = PetData()
+//        let pet = Pet(entity: Pet.entity(), insertInto: context)
+//        pet.name = data.name
+//        pet.kind = data.kind
+////        pet.dob = data.dob
+//        pet.owner = user
+//        appDelegate.saveContext()
+        
+        // Transition to next screen
+        let pictureViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.pictureViewController) as? PictureViewController
+        self.view.window?.rootViewController = pictureViewController
+        self.view.window?.makeKeyAndVisible()
     }
 }
 

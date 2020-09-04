@@ -14,6 +14,7 @@ class PictureViewController: UIViewController {
     @IBOutlet weak var pickerView: UIPickerView!
     
     var breeds: [String] = []
+    var dogImage : UIImage!
     
     
     override func viewDidLoad() {
@@ -39,7 +40,18 @@ class PictureViewController: UIViewController {
     func handleImageFileResponse(image: UIImage?, error: Error?){
         DispatchQueue.main.async {
             self.imageView.image = image
+            self.dogImage = image
         }
+    }
+    
+    @IBAction func addPetButton(_ sender: Any) {
+        // Transition to HomeViewController with Pet
+        let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        homeViewController?.dogImageFromUser = dogImage
+        self.view.window?.rootViewController = homeViewController
+        self.view.window?.makeKeyAndVisible()
+        
+        
     }
     
 }

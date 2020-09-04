@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 
 class PetCell: UITableViewCell {
+    
     @IBOutlet weak var pictureImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var animalLabel: UILabel!
     @IBOutlet weak var dobLabel: UILabel!
+    
 }

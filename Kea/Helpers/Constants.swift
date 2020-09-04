@@ -16,5 +16,7 @@ struct Constants {
         
         static let userViewController = "UserVC"
         
+        static let pictureViewController = "picture"
+        
     }
 }

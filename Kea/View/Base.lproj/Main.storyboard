@@ -325,6 +325,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="YoF-gH-Hki">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9DZ-10-Pct">
+                                <rect key="frame" x="0.0" y="762" width="414" height="50"/>
+                                <color key="backgroundColor" red="0.24313725489999999" green="0.44705882349999998" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ZYr-yr-BZD"/>
+                                </constraints>
+                                <state key="normal" title="Add Pet">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPetButton:" destination="HAz-ur-0oB" eventType="touchUpInside" id="Sja-2W-SKd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -335,12 +351,18 @@
                             <constraint firstItem="gM5-d9-bba" firstAttribute="bottom" secondItem="2qe-IE-P0c" secondAttribute="bottom" id="Sdh-up-8Kf"/>
                             <constraint firstItem="kA0-fb-rSl" firstAttribute="top" secondItem="gM5-d9-bba" secondAttribute="top" constant="214" id="VQW-pX-vyG"/>
                             <constraint firstItem="kA0-fb-rSl" firstAttribute="bottom" secondItem="gM5-d9-bba" secondAttribute="bottom" id="Wz3-AS-8A3"/>
+                            <constraint firstItem="YoF-gH-Hki" firstAttribute="centerY" secondItem="KyA-yR-PS3" secondAttribute="centerY" id="etF-A6-fi1"/>
+                            <constraint firstItem="9DZ-10-Pct" firstAttribute="leading" secondItem="gM5-d9-bba" secondAttribute="leading" id="evQ-ci-Ivi"/>
+                            <constraint firstItem="gM5-d9-bba" firstAttribute="trailing" secondItem="9DZ-10-Pct" secondAttribute="trailing" id="im5-ni-hZI"/>
                             <constraint firstItem="iiJ-hE-0hl" firstAttribute="leading" secondItem="gM5-d9-bba" secondAttribute="leading" id="kEn-xU-9bg"/>
+                            <constraint firstItem="2qe-IE-P0c" firstAttribute="top" secondItem="9DZ-10-Pct" secondAttribute="bottom" id="ngm-g5-TV7"/>
                             <constraint firstItem="kA0-fb-rSl" firstAttribute="leading" secondItem="gM5-d9-bba" secondAttribute="leading" id="y5s-aQ-Q1C"/>
                             <constraint firstItem="kA0-fb-rSl" firstAttribute="trailing" secondItem="gM5-d9-bba" secondAttribute="trailing" id="zNn-el-n0l"/>
+                            <constraint firstItem="YoF-gH-Hki" firstAttribute="centerX" secondItem="KyA-yR-PS3" secondAttribute="centerX" id="zxU-O0-rdt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gM5-d9-bba"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="kA0-fb-rSl" id="VTJ-Ea-h1j"/>
                         <outlet property="pickerView" destination="iiJ-hE-0hl" id="Vbb-pg-u8z"/>
