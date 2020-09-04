@@ -300,7 +300,7 @@
         <!--Picture View Controller-->
         <scene sceneID="RtS-LM-BMk">
             <objects>
-                <viewController id="HAz-ur-0oB" customClass="PictureViewController" customModule="Kea" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="picture" id="HAz-ur-0oB" customClass="PictureViewController" customModule="Kea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KyA-yR-PS3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -447,14 +447,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="brr-FT-NyT">
-                                                    <rect key="frame" x="20" y="25" width="91" height="20"/>
+                                                    <rect key="frame" x="20" y="23" width="91" height="24"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Il9-bP-OME">
-                                                    <rect key="frame" x="117" y="25" width="43.5" height="20"/>
+                                                    <rect key="frame" x="117" y="23" width="49" height="24"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                     <nil key="textColor"/>

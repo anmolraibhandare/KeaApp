@@ -12,7 +12,7 @@ import UIKit
 class PetData {
     var name = ""
     var kind = ""
-    var picture: Data?
+    var picture: UIImage?
     var dob = Date()
     
     private let names = ["Eddie", "Kimchi", "Meetkit", "Handel", "Kinginthenorth", "Rockzilla", "Kuro" ]

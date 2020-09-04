@@ -65,7 +65,26 @@ class HomeViewController: UIViewController {
         } catch let error as NSError {
             print("Could not Fetch data. \(error), \(error.userInfo)")
         }
+        
+        // If dogImageFromUser is not null that means user has selected pet image
+        if dogImageFromUser != nil {
+            addPetToModel()
+        }
     }
+    
+    // Adds PetData to Container / CoreData
+    private func addPetToModel() {
+        let data = PetData()
+        let pet = Pet(entity: Pet.entity(), insertInto: context)
+        pet.name = data.name
+        pet.kind = data.kind
+        // Convert UIImage to NSData to store in CoreData
+        pet.picture = self.dogImageFromUser.jpegData(compressionQuality: 1.0)
+        pet.owner = user
+
+        appDelegate.saveContext()
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -85,16 +104,9 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func addPet(_ sender: Any) {
-//        let data = PetData()
-//        let pet = Pet(entity: Pet.entity(), insertInto: context)
-//        pet.name = data.name
-//        pet.kind = data.kind
-////        pet.dob = data.dob
-//        pet.owner = user
-//        appDelegate.saveContext()
-        
         // Transition to next screen
         let pictureViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.pictureViewController) as? PictureViewController
+        pictureViewController?.user = self.user
         self.view.window?.rootViewController = pictureViewController
         self.view.window?.makeKeyAndVisible()
     }

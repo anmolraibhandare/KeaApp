@@ -15,6 +15,7 @@ class PictureViewController: UIViewController {
     
     var breeds: [String] = []
     var dogImage : UIImage!
+    var user: User!
     
     
     override func viewDidLoad() {
@@ -47,7 +48,8 @@ class PictureViewController: UIViewController {
     @IBAction func addPetButton(_ sender: Any) {
         // Transition to HomeViewController with Pet
         let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
-        homeViewController?.dogImageFromUser = dogImage
+        homeViewController?.dogImageFromUser = self.dogImage
+        homeViewController?.user = self.user
         self.view.window?.rootViewController = homeViewController
         self.view.window?.makeKeyAndVisible()
         
