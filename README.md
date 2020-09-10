@@ -1,5 +1,5 @@
 # KeaApp
-Pet tracking OS app that allows the users to: Sign in to the app, search for a dog breed and add random pet image, pin a location to get all the path from current locations.
+Pet tracking iOS app that allows the users to: Sign in to the app, search for a dog breed and add random pet image, pin a location to get all the path from current locations.
 
 ### Overview
 Features used in the application:\
