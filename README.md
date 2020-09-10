@@ -4,8 +4,8 @@ Pet tracking iOS app that allows the users to: Sign in to the app, search for a 
 ### Overview
 Features used in the application:\
 `AVKit` - to place the video image on the main view controller\
-`Firebase` - to Sign in and Sign up to the app\
-`Core Data` - to persist user data in local memory using\
+`Firebase` - to sign in and sign up to the app\
+`Core Data` - to persist user data in local memory\
 `MapView` - to display paths for walking\
 `DogAPI` - to search for random dog images and save them in the memory
 
