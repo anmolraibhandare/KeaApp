@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,9 +18,9 @@
 		260A350A24FDDCD500008183 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A350924FDDCD500008183 /* LoginViewController.swift */; };
 		260A350C24FDDCE800008183 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A350B24FDDCE800008183 /* HomeViewController.swift */; };
 		260A351024FDE7D200008183 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A350F24FDE7D200008183 /* Utilities.swift */; };
-		260A351424FEBEAF00008183 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 260A351324FEBEAF00008183 /* GoogleService-Info.plist */; };
 		260A351624FEC48700008183 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A351524FEC48700008183 /* Constants.swift */; };
 		260A351924FEDDB000008183 /* viewControllerVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 260A351824FEDDB000008183 /* viewControllerVideo.mp4 */; };
+		2688B552261E259500FA5E49 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2688B551261E259500FA5E49 /* GoogleService-Info.plist */; };
 		26D529592502180000A670B1 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D529582502180000A670B1 /* Alert.swift */; };
 		26FF227C24FEEE160027FC4B /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26FF227324FEEE150027FC4B /* Poppins-ExtraLight.ttf */; };
 		26FF227D24FEEE160027FC4B /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26FF227424FEEE150027FC4B /* Poppins-Thin.ttf */; };
@@ -61,9 +61,9 @@
 		260A350924FDDCD500008183 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		260A350B24FDDCE800008183 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		260A350F24FDE7D200008183 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		260A351324FEBEAF00008183 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		260A351524FEC48700008183 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		260A351824FEDDB000008183 /* viewControllerVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = viewControllerVideo.mp4; sourceTree = "<group>"; };
+		2688B551261E259500FA5E49 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		26D529582502180000A670B1 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		26FF227324FEEE150027FC4B /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		26FF227424FEEE150027FC4B /* Poppins-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Thin.ttf"; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 				260A34EC24FDDB4500008183 /* AppDelegate.swift */,
 				260A34EE24FDDB4500008183 /* SceneDelegate.swift */,
 				260A34FD24FDDB4800008183 /* Info.plist */,
-				260A351324FEBEAF00008183 /* GoogleService-Info.plist */,
+				2688B551261E259500FA5E49 /* GoogleService-Info.plist */,
 				26FF22FA2501CB1F0027FC4B /* Network */,
 				26FF227224FEEDD70027FC4B /* Fonts */,
 				260A350E24FDE7B000008183 /* Helpers */,
@@ -297,7 +297,6 @@
 			);
 			mainGroup = 260A34E024FDDB4500008183;
 			packageReferences = (
-				26FF22BC25004A6B0027FC4B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 260A34EA24FDDB4500008183 /* Products */;
 			projectDirPath = "";
@@ -320,13 +319,13 @@
 				26FF228124FEEE160027FC4B /* Poppins-Medium.ttf in Resources */,
 				260A34FC24FDDB4800008183 /* LaunchScreen.storyboard in Resources */,
 				26FF227E24FEEE160027FC4B /* Poppins-Bold.ttf in Resources */,
-				260A351424FEBEAF00008183 /* GoogleService-Info.plist in Resources */,
 				260A34F924FDDB4800008183 /* Assets.xcassets in Resources */,
 				26FF227F24FEEE160027FC4B /* Poppins-Black.ttf in Resources */,
 				260A351924FEDDB000008183 /* viewControllerVideo.mp4 in Resources */,
 				26FF228224FEEE160027FC4B /* Poppins-SemiBold.ttf in Resources */,
 				260A34F424FDDB4500008183 /* Main.storyboard in Resources */,
 				26FF228024FEEE160027FC4B /* Poppins-Regular.ttf in Resources */,
+				2688B552261E259500FA5E49 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,17 +600,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		26FF22BC25004A6B0027FC4B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCVersionGroup section */
 		260A34F524FDDB4500008183 /* Kea.xcdatamodeld */ = {
